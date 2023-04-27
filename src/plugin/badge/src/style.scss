@@ -1,0 +1,9 @@
+.badge{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 12px;
+    // display: inline-block;
+    z-index: 9998;
+    transform: scale(90%, 90%) translate(0.5rem,-0.5rem); 
+}

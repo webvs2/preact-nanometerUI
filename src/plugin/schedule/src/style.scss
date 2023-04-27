@@ -1,0 +1,21 @@
+.schedule {
+  animation-name: myfirst;
+  animation-timing-function: ease-in-out;
+  // animation-duration: 6s;
+  opacity: 0;
+  @apply h-1;
+}
+@keyframes myfirst {
+  from {
+    opacity: 0.8;
+    width: 100%;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0.1;
+    // width: 0;
+    @apply w-0;
+  }
+}

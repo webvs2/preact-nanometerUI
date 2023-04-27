@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("../public/assets/icon/iconfont.css");
+@import "./animation.scss";
+:root {
+  --base-font-color: #303133;
+  --nan-succeed-color: #72e985;
+  --nan-error-color: #ce4a4e;
+  --nan-text-align: left;
+  --nan-padding: 4px 18px 10px 18px;
+  --nan-animation-duration: 0.5s;
+  --nan-justify-content: flex-start;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
