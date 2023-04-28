@@ -1,0 +1,11 @@
+@include b(button) {
+  @apply antialiased  text-gray-700 transition text-xs  duration-500 rounded-md  hover:text-current;
+  @include e(normal) {
+    @apply py-2 px-3;
+  }
+  @include e(large) {
+    border: solid red 1px;
+    @apply py-4 px-6 text-xl;
+  }
+
+}

@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @import url("../public/assets/icon/iconfont.css");
+@import url("../public/assets/source-code-pro-release/source-code-pro.css");
 @import "./animation.scss";
+
 :root {
   --base-font-color: #303133;
   --nan-succeed-color: #72e985;
@@ -18,4 +20,8 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
+}
+.f-Source{
+  font-family: "Source Code Pro", Avenir, Helvetica, Arial, sans-serif;
+
 }

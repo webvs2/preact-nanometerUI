@@ -9,8 +9,13 @@ import "./css/index.scss";
 //     components[module.name] = module.install();
 //   });
 // });
+import card from "./plugin/card/index";
 import message from "./plugin/message/index";
 import schedule from "./plugin/schedule/index";
+import button from "./plugin/button/index";
+import badge from "./plugin/badge/index";
 import "./app.tsx"
+// Prefix all exports with Nan components
 
-export { schedule, message };
+
+export { schedule, message,button,badge,card};

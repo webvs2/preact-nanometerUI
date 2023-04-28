@@ -1,5 +1,7 @@
+type state = 'success' | 'warning' | 'info' | 'error'; 
+export {state}
 export interface optionType {
-    type: string;
+    type: state;
     center?:boolean
     durationTime?: number; //ms
     class?: string;

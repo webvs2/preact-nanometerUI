@@ -1,21 +1,22 @@
-
-
-interface buttonProps {
-  value: string;
+import "./src/style.scss";
+import { sizeProps } from "@/public/type";
+interface buttonProps extends sizeProps {
+  value?: string;
   negative?: boolean;
   onClick?: () => void;
+  children?: any;
 }
 
 function buttonComponent(props: buttonProps) {
-  console.log(props);
   return (
     <button
       onClick={props.onClick}
-      class={`py-2 px-3 antialiased  text-gray-700 transition text-xs  duration-500 rounded-lg   ${
-        !props.negative ? "hover:bg-gray-300" : "bg-gray-300"
-      }  hover:text-current `}
+      class={`na-button  na-button__${props.size || "normal"}
+        ${
+        !props.negative ? "hover:bg-gray-300" : "bg-gray-200"
+      }  `}
     >
-      {props.value}
+      {props.value || props.children}
     </button>
   );
 } 

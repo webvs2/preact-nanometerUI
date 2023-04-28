@@ -1,9 +1,19 @@
-.badge{
-    position: absolute;
-    top: 0;
-    right: 0;
+@include b(badge) {
+  display: inline-block;
+  position: relative;
+  @apply mx-4;
+  .after {
+    z-index: $z-base -10;
+    min-width: theme("width.5");
+    border: solid red 1px;
     font-size: 12px;
-    // display: inline-block;
-    z-index: 9998;
-    transform: scale(90%, 90%) translate(0.5rem,-0.5rem); 
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    transform: scale(90%, 90%) translate(90%, -60%);
+    @apply bg-red-500 absolute top-0 right-0  text-white flex items-center justify-center cursor-pointer  p-1  h-5 rounded-full;
+  }
+  @include e(small) {
+    .after {
+      transform: scale(80%, 80%) translate(90%, -90%);
+    }
+  }
 }

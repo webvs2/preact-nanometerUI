@@ -2,6 +2,7 @@
   animation-name: myfirst;
   animation-timing-function: ease-in-out;
   // animation-duration: 6s;
+  width: 0;
   opacity: 0;
   @apply h-1;
 }
@@ -10,12 +11,12 @@
     opacity: 0.8;
     width: 100%;
   }
-  50% {
+
+  98% {
     opacity: 0.7;
   }
   to {
-    opacity: 0.1;
-    // width: 0;
-    @apply w-0;
+    opacity: 0;
+    @apply w-0 p-0;
   }
 }

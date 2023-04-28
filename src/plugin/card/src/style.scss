@@ -1,0 +1,22 @@
+@include b(card){
+    border: solid   1px;
+    display: inline-block;
+    box-shadow:  0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    @apply px-3  border-gray-200 m-1 rounded-md;
+    min-width: 400px ;
+    @include e('head'){
+        // border: solid red 1px;
+        @apply flex items-center text-base justify-start border-b   border-gray-300 pb-1 pt-3;
+    }
+    @include e('body'){
+        @apply pt-4;
+        // border: solid red 1px;
+
+    }
+    @include e('bottom'){
+        // border: solid red 1px;
+
+        @apply flex flex-col items-center justify-center pb-6;
+    }
+
+}
