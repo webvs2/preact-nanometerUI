@@ -1,5 +1,3 @@
-// import "./public/assets/icon/iconfont.scss";
-
 import "./css/index.scss";
 export * from "./plugin/index";
 import "./app.tsx"
