@@ -9,10 +9,6 @@ export default defineConfig({
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx',]
   },
-  // esbuild: {
-  //   jsxFactory: 'h',
-  //   jsxFragment: 'Fragment',
-  // },
   css:{
     preprocessorOptions:{
       scss:{
