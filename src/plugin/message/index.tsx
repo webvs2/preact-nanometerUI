@@ -92,7 +92,7 @@ class Message {
 
 let MessageBox = new Message();
 // state|optionType,string
-let message: any = (...data :[state|optionType,string]) => {
+let message: any = (...data :[state|optionType,string|null]) => {
   console.log("data",data);
   if (typeof data[0] === "object") {
     MessageBox.alteration(data[0]);
