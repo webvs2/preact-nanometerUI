@@ -5,7 +5,7 @@ $state-prefix: "is-";
 // $B: $namespace;
 @mixin b($block) {
   $B: $namespace + "-" + $block !global;
-  @debug $B ;
+  @debug $B;
   .#{$B} {
     @content;
   }

@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+dependencies:
+  vite-project:
+    specifier: 'link:'
+    version: 'link:'
+
 devDependencies:
   '@babel/plugin-transform-react-jsx':
     specifier: ^7.21.0

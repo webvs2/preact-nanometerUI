@@ -1,5 +1,5 @@
 import "./src/style.scss";
-import { sizeProps } from "@/public/type";
+import { sizeProps } from "toolkit/type";
 interface buttonProps extends sizeProps {
   value?: string;
   negative?: boolean;

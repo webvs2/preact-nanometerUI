@@ -1,6 +1,6 @@
 import "./src/styles/index.scss";
 import { optionType,state } from "./type";
-import { storeSteward } from "../../public/store";
+import { storeSteward } from "toolkit/store";
 import {  h, render } from "preact";
 let $store = new storeSteward({
   store: {
@@ -15,7 +15,6 @@ let $store = new storeSteward({
       let { timingPile} = store;
       timingPile[register.id] =  setTimeout(() => {
         let node = document.getElementById(register.id) as HTMLElement;
-        console.log('node',node.className)
         node.className = "out " + node.className;
         node.addEventListener(
           "animationend",
@@ -83,7 +82,7 @@ class Message {
         ]
       ),
 
-      document.body,
+      // document.body,
       document.getElementById("app")!.lastChild as Element
     );
     $store.commit('push', ({id:id,data:state}));

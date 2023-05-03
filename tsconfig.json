@@ -19,7 +19,9 @@
     "baseUrl": "./",
      "paths": {
       "@/*": ["src/*"],
-      "@lib/*": ["lib/*"]}
+      "@lib/*": ["lib/*"],
+      "@toolkit/*": ["toolkit/*"],
+    }
   },
   "include": ["src","lib"],
   

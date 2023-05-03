@@ -1,15 +1,16 @@
 import { h, render } from "preact";
-import logo from "./public/logo.png";
+// import logo from "public/logo.png";
 import {
   button as NaButton,
   schedule as NaSchedule,
   badge as NaBadge,
   card as NaCard,
   message as NaMessage,
+  input as NaInput,
 } from "./main";
 
 function clickFn() {
-  NaMessage('error',"1212")
+  NaMessage("error", "1212");
   console.log("clickFn");
 }
 let App = () => {
@@ -23,10 +24,9 @@ let App = () => {
       </div>
       <NaCard title="文字标题">
         Button: <NaButton value="默认按钮" onClick={clickFn} />
-        Button negative: <NaButton  negative value="默认按钮" onClick={clickFn} />
+        Button negative:{" "}
+        <NaButton negative value="默认按钮" onClick={clickFn} />
         {/* Button log: <NaButton  negative value="默认按钮" onClick={clickFn} /> */}
-
-
       </NaCard>
 
       <div class={"m-5"}>
@@ -47,7 +47,11 @@ let App = () => {
         NaSchedule: <NaSchedule duration={10000} />
       </div>
       <div class={"mt-5"}>
-     NaMessage <NaButton onClick={clickFn}>click</NaButton>
+        NaMessage <NaButton onClick={clickFn}>click</NaButton>
+      </div>
+
+      <div class={"mt-5"}>
+        NaInput <NaInput value="1212" />
       </div>
     </div>
   );
