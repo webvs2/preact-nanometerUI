@@ -1,5 +1,5 @@
 import "./css/index.scss";
-export * from "./plugin/index";
+// export * from "./plugin/index";
 import "./app.tsx"
 // const modules = import.meta.glob("./plugin/*/*.ts", { import: 'default'});
 // const components: any = {};

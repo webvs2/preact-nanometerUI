@@ -1,13 +1,13 @@
 import { h, render } from "preact";
 // import logo from "public/logo.png";
 import {
-  button as NaButton,
-  schedule as NaSchedule,
-  badge as NaBadge,
-  card as NaCard,
-  message as NaMessage,
-  input as NaInput,
-} from "./main";
+  NaButton,
+  NaSchedule,
+  NaBadge,
+  NaCard,
+  NaMessage,
+  NaInput,
+} from "./plugin/index";
 
 function clickFn() {
   NaMessage("error", "1212");
