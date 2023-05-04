@@ -5,13 +5,13 @@ $state-prefix: "is-";
 // $B: $namespace;
 @mixin b($block) {
   $B: $namespace + "-" + $block !global;
-  @debug $B;
+  // @debug $B;
   .#{$B} {
     @content;
   }
 }
 @mixin e($element) {
-  @debug $element;
+  // @debug $element;
   // element selector mixin
   $E: $element !global;
   $selector: &;
@@ -52,7 +52,7 @@ $state-prefix: "is-";
       $unit +
       ","};
   }
-
+@debug $currentSelector;
   @at-root {
     #{$currentSelector} {
       @content;

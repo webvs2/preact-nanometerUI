@@ -1,5 +1,5 @@
 import "./src/style.scss";
-import { sizeProps } from "@/toolkit/type";
+import { sizeProps } from "@toolkit/baseType";
 interface BadgeProps extends sizeProps {
   value?: string | number;
   children?: any;

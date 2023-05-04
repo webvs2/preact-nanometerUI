@@ -4,7 +4,8 @@ import schedule from "./schedule/index";
 import button from "./button/index";
 import badge from "./badge/index";
 import input from "./input/index";
-
+import select from "./select/index";
+import radio from "./radio/index";
 // const modules = import.meta.glob("./*/index.tsx", { import: 'default'});
 // const components: any = {};
 // Object.keys(modules).map((item: string) => {
@@ -16,9 +17,11 @@ import input from "./input/index";
 
 export {
   button as NaButton,
-  schedule as NaSchedule,
   badge as NaBadge,
   card as NaCard,
-  message as NaMessage,
+  message ,
+  schedule as NaSchedule,
+  radio as NaRadio,
   input as NaInput,
+  select as NaSelect,
 };

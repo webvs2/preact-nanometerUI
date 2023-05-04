@@ -20,7 +20,7 @@
      "paths": {
       "@/*": ["src/*"],
       "@lib/*": ["lib/*"],
-      "@toolkit/*": ["toolkit/*"],
+      "@toolkit/*": ["src/toolkit/*"],
     }
   },
   "include": ["src","lib"],

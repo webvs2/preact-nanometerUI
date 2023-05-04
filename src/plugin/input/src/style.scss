@@ -1,40 +1,18 @@
 
 @include b(input){
-    // border: solid red 1px; 
-    // @apply border border-gray-300 rounded-md px-3 py-2;
-
+   font-size: 14px;
+   
     &[type="text"]{
         transition:all .2s;
-        @apply border border-gray-300 rounded-md px-2 py-1  focus:border-green-300;
+        @apply border border-gray-300 rounded-md px-2 py-1 ;
         outline: none;
+        &:hover{
+           @apply border border-gray-400;
+        }
         &:focus{
-            @apply border  rounded-md px-2 py-1; 
+           @apply border border-sky-400;
         }
     }
-    // input[type=text], select {
-    //     width: 100%;
-    //     padding: 12px 20px;
-    //     margin: 8px 0;
-    //     display: inline-block;
-    //     border: 1px solid #ccc;
-    //     border-radius: 4px;
-    //     box-sizing: border-box;
-    //   }
-       
-    //   input[type=submit] {
-    //     width: 100%;
-    //     background-color: #4CAF50;
-    //     color: white;
-    //     padding: 14px 20px;
-    //     margin: 8px 0;
-    //     border: none;
-    //     border-radius: 4px;
-    //     cursor: pointer;
-    //   }
-       
-    //   input[type=submit]:hover {
-    //     background-color: #45a049;
-    //   }
        
 
 }

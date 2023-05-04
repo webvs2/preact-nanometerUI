@@ -5,13 +5,15 @@ import {
   NaSchedule,
   NaBadge,
   NaCard,
-  NaMessage,
+  message ,
   NaInput,
+  NaSelect,
+  NaRadio
 } from "./plugin/index";
 
 function clickFn() {
-  NaMessage("error", "1212");
-  console.log("clickFn");
+  console.log("click",  message("error", "1212"));
+
 }
 let App = () => {
   return (
@@ -22,11 +24,14 @@ let App = () => {
           holle！Nanometer UI
         </h1>
       </div>
-      <NaCard title="文字标题">
+      <NaCard title="按钮" isShowTopBar={false} isShowBottomBar={true}>
+       <div>各种按钮</div>
         Button: <NaButton value="默认按钮" onClick={clickFn} />
         Button negative:{" "}
-        <NaButton negative value="默认按钮" onClick={clickFn} />
-        {/* Button log: <NaButton  negative value="默认按钮" onClick={clickFn} /> */}
+        <NaButton  value="默认按钮" onClick={clickFn} />
+
+            <NaButton disabled value="1212"></NaButton>
+            <NaButton negative='success' value="1212"></NaButton>
       </NaCard>
 
       <div class={"m-5"}>
@@ -43,15 +48,22 @@ let App = () => {
           </NaBadge>
         </NaButton>
       </div>
-      <div class={"m-5"}>
+      {/* <div class={"m-5"}>
         NaSchedule: <NaSchedule duration={10000} />
-      </div>
+      </div> */}
       <div class={"mt-5"}>
         NaMessage <NaButton onClick={clickFn}>click</NaButton>
       </div>
 
       <div class={"mt-5"}>
         NaInput <NaInput value="1212" />
+      </div>
+      <div class={'mt-5'}>
+      NaSelect: <NaSelect />
+      </div>
+      <div class={'mt-5'}>
+      radio: <NaRadio value={1}>  A</NaRadio>
+      <NaRadio value={2}>B</NaRadio>
       </div>
     </div>
   );

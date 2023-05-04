@@ -1,7 +1,9 @@
 import "./src/styles/index.scss";
 import { optionType,state } from "./type";
-import { storeSteward } from "toolkit/store";
-import {  h, render } from "preact";
+import { storeSteward } from "@toolkit/store";
+import  render  from "@toolkit/render";
+
+
 let $store = new storeSteward({
   store: {
     seed: 0,
@@ -38,7 +40,7 @@ let $store = new storeSteward({
 class Message {
   state = {
     type: "info",
-    durationTime: 30000, //ms
+    durationTime: 3000, //ms
     postEvent: null,
     class: "",
     center: true,
@@ -53,38 +55,46 @@ class Message {
 
   establish() {
     let { state } = this;
-    console.log(state);
     let seed = $store.store.seed;
-    // $store.store.seed++;
     $store.commit('seed');
 
     if (!state.content) {
       throw '[message] If you use the object argument form, be aware!"content" is required';
     }
     let id = "message_" + seed;
-    render(
-      h(
-        "div",
+    const elem = render({
+      tag: "div",
+      children: [
         {
-          id: id,
-          class: `na-message__${state.type} na-message__box enter ${
-            state.class
-          }  ${state.center ? "center" : ""}`,
-          style: { zIndex: 100 + seed },
+          tag: "div",
+          attr: {
+            class: "content",
+          },
+          children:[
+            {
+              tag: "i",
+              attr: {
+                class:`iconfont icon icon-${state.type}` ,
+              },
+            },
+            {
+              tag: "span",
+              children: state.content,
+            },
+
+          ]
         },
-
-        [
-          h("div", { class: "content" }, [
-            h("i", { class: `iconfont icon icon-${state.type}` }),
-            h("span", {}, state.content),
-          ]),
-          h("div", { class: "bottom" }, []),
-        ]
-      ),
-
-      // document.body,
-      document.getElementById("app")!.lastChild as Element
-    );
+    
+      ],
+      attr: {
+        class: `na-message__${state.type} na-message__box enter ${
+          state.class
+        }  ${state.center ? "center" : ""}` ,
+        id: id,
+        style: { zIndex: 100 + seed},
+      },
+    });
+    document.body.appendChild(elem);
     $store.commit('push', ({id:id,data:state}));
   }
 }
@@ -92,7 +102,6 @@ class Message {
 let MessageBox = new Message();
 // state|optionType,string
 let message: any = (...data :[state|optionType,string|null]) => {
-  console.log("data",data);
   if (typeof data[0] === "object") {
     MessageBox.alteration(data[0]);
   } else {
@@ -107,17 +116,4 @@ new Array("success", "warning", "info", "error").map((item) => {
     MessageBox.alteration({ type: item as state , content: value });
   };
 });
-
-// export function info() {
-//   return {
-//     name: "message",
-//     install(app: any) {
-//       if (app) {
-//         app.config.globalProperties.$message = message;
-//       } else {
-//         return message;
-//       }
-//     },
-//   };
-// }
 export default message;

@@ -1,7 +1,7 @@
 @charset "utf-8";
 @include b(message) {
   @include e(box) {
-    @apply text-base fixed rounded-lg   text-left;
+    @apply text-base fixed rounded-lg   text-left ;
     min-width: 380px;
     display: inline-block;
     justify-content: var(--nan-justify-content);
@@ -13,7 +13,7 @@
     right: 50%;
     translate: (-50% 0);
     .content {
-      @apply overflow-ellipsis  text-justify p-1 mt-1;
+      @apply overflow-ellipsis  text-justify p-1 pt-2;
       display: flex;
       min-width: 100%;
       span {
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
     .bottom {
-      @apply pt-3 absolute bottom-0 left-0 right-0 pl-1 pr-1;
+      @apply pt-1 absolute bottom-0 left-0 right-0 pl-1 pr-1;
       bottom: 0px;
       z-index: $z-base;
       width: 100%;

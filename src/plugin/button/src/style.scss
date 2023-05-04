@@ -7,5 +7,19 @@
     border: solid red 1px;
     @apply py-4 px-6 text-xl;
   }
+  @include m(disabled) {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  @include m(success) {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    &:hover {
+      @apply bg-green-500 text-white;
+    }
+    @apply bg-green-500 text-white;
+  }
+  @include m(warning){
+    @apply bg-yellow-500 text-white;
+    
+  }
 
 }

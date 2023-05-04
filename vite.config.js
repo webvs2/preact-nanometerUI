@@ -6,8 +6,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
-      'public': resolve(__dirname, 'public'),
-      'toolkit': resolve(__dirname, 'src/toolkit'),
+      '@public': resolve(__dirname, 'public'),
+      '@toolkit': resolve(__dirname, 'src/toolkit'),
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx',]
   },

@@ -1,4 +1,4 @@
-import { cssAttrSymbolTransition as cast,isDom } from "./util";
+import { cssAttrSymbolTransition as cast,isDom } from "./helper";
 import {compact} from "lodash-es"
 interface interfaceRender {
   tag: string;

@@ -1,0 +1,8 @@
+@include b(radio){
+    border: solid 1px red;
+    display: inline-block;
+    
+    @include e(label){
+        @apply font-size(14px);
+    }
+}
