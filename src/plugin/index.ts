@@ -22,6 +22,6 @@ export {
   message ,
   schedule as NaSchedule,
   radio as NaRadio,
-  input as NaInput,
+  input as Input,
   select as NaSelect,
 };

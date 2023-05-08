@@ -6,7 +6,7 @@ import {
   NaBadge,
   NaCard,
   message ,
-  NaInput,
+  Input,
   NaSelect,
   NaRadio
 } from "./plugin/index";
@@ -56,7 +56,7 @@ let App = () => {
       </div>
 
       <div class={"mt-5"}>
-        NaInput <NaInput value="1212" />
+        NaInput <Input value="1212" />
       </div>
       <div class={'mt-5'}>
       NaSelect: <NaSelect />
