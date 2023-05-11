@@ -1,5 +1,5 @@
 @include b(button) {
-  @apply antialiased  text-gray-700 transition text-xs  duration-500 rounded-md  hover:text-current;
+  @apply antialiased  text-gray-700  cursor-pointer transition text-xs  duration-500 rounded-md  hover:text-current;
   @include e(normal) {
     @apply py-2 px-3;
   }
@@ -12,14 +12,20 @@
   }
   @include m(success) {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-    &:hover {
-      @apply bg-green-500 text-white;
-    }
-    @apply bg-green-500 text-white;
+    pointer-events: auto;
+     @apply bg-green-500 text-white hover:text-cyan-100;
   }
-  @include m(warning){
-    @apply bg-yellow-500 text-white;
-    
+  @include m(warning) {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+     @apply bg-yellow-500 text-white hover:text-cyan-100;
   }
+  @include m(danger) {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+     @apply bg-red-500 text-white hover:text-cyan-100;
+  }
+  // @include m(){
 
+  // }
 }

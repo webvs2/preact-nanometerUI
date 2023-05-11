@@ -1,0 +1,39 @@
+label {
+  display: inline-block;
+}
+
+label > span {
+  display: block;
+  padding-bottom: 10px;
+}
+
+[role="option"]:focus {
+  outline: 0;
+}
+
+[role="combobox"] {
+  background: #ddd;
+  user-select: none;
+}
+.selectBox {
+  display: inline-block;
+  min-width: 160px;
+  @apply bg-white border px-2 py-1  rounded-md border-gray-300 ;
+}
+.present {
+  // transition:all .3s;
+  @apply bg-gray-200 text-gray-700 ;
+}
+.optionBox {
+  overflow-y: auto;
+
+  min-width: 100px;
+  // borderRadius: 8,
+  outline: 0;
+  @apply bg-white rounded-md shadow-xl border  border-gray-200;
+}
+.usual {
+  cursor: default;
+  
+  @apply px-3 py-3   transition-all text-sm text-gray-700;
+}

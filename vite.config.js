@@ -21,7 +21,7 @@ export default defineConfig({
   plugins: [preact()],
   build: {
     lib: {
-      entry: resolve(__dirname, './src/main.ts'),
+      entry: resolve(__dirname, './src/plugin/index'),
       name: 'nanometer',
       fileName: 'lib',
     },

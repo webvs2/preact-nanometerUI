@@ -5,15 +5,15 @@ import {
   NaSchedule,
   NaBadge,
   NaCard,
-  message ,
+  message,
   Input,
-  NaSelect,
-  NaRadio
+  Select,
+  NaRadio,
+  Tooltip,
 } from "./plugin/index";
 
 function clickFn() {
-  console.log("click",  message("error", "1212"));
-
+  console.log("click", message("error", "1212"));
 }
 let App = () => {
   return (
@@ -25,13 +25,15 @@ let App = () => {
         </h1>
       </div>
       <NaCard title="按钮" isShowTopBar={false} isShowBottomBar={true}>
-       <div>各种按钮</div>
+        <div>Various buttons</div>
         Button: <NaButton value="默认按钮" onClick={clickFn} />
-        Button negative:{" "}
-        <NaButton  value="默认按钮" onClick={clickFn} />
-
-            <NaButton disabled value="1212"></NaButton>
-            <NaButton negative='success' value="1212"></NaButton>
+        Button negative: <NaButton value="默认按钮" onClick={clickFn} />
+        <NaButton disabled value="1212"></NaButton>
+        <NaButton negative="success" value="1212"></NaButton>
+        <span class={`ml-2`}></span>
+        <NaButton negative="warning" value="2323"></NaButton>
+        <span class={`ml-2`}></span>
+        <NaButton negative="danger" value="4545"></NaButton>
       </NaCard>
 
       <div class={"m-5"}>
@@ -58,12 +60,18 @@ let App = () => {
       <div class={"mt-5"}>
         NaInput <Input value="1212" />
       </div>
-      <div class={'mt-5'}>
-      NaSelect: <NaSelect />
+      <div class={"mt-5"}>
+        Select: <Select />
       </div>
-      <div class={'mt-5'}>
-      radio: <NaRadio value={1}>  A</NaRadio>
-      <NaRadio value={2}>B</NaRadio>
+      <div class={"mt-5"}>
+        radio: <NaRadio value={1}> A</NaRadio>
+        <NaRadio value={2}>B</NaRadio>
+      </div>
+      <div class={"mt-5"}>
+      tooltip: <Tooltip value={"我是提示"}>1212</Tooltip>
+      </div>
+      <div class={`mt-10`} style="margin-top:800px">
+        12
       </div>
     </div>
   );

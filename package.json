@@ -48,6 +48,7 @@
     }
   },
   "dependencies": {
+    "@floating-ui/react": "^0.24.0",
     "@popperjs/core": "^2.11.7",
     "react-popper": "^2.3.0",
     "vite-project": "link:"
