@@ -15,7 +15,6 @@ let BottomBar = function (props) {
 };
 const card = (props) => {
   let { isShowBottomBar, isShowTopBar, title } = props;
-  console.log(props);
   return (
     <div class={`na-card`}>
       {isShowTopBar && <TopBar title={title} />}

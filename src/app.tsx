@@ -1,5 +1,4 @@
-import { h, render } from "preact";
-// import logo from "public/logo.png";
+import { render } from "preact";
 import {
   NaButton,
   NaSchedule,
@@ -12,8 +11,10 @@ import {
   Tooltip,
 } from "./plugin/index";
 
-function clickFn() {
-  console.log("click", message("error", "1212"));
+
+function clickFn(type='error') {
+  if(typeof type =='object') type ='error'
+  message(type, "这是一个消息")
 }
 let App = () => {
   return (
@@ -26,10 +27,10 @@ let App = () => {
       </div>
       <NaCard title="按钮" isShowTopBar={false} isShowBottomBar={true}>
         <div>Various buttons</div>
-        Button: <NaButton value="默认按钮" onClick={clickFn} />
-        Button negative: <NaButton value="默认按钮" onClick={clickFn} />
+        Button: <NaButton value="默认按钮"  />
+        Button negative: <NaButton value="默认按钮"  />
         <NaButton disabled value="1212"></NaButton>
-        <NaButton negative="success" value="1212"></NaButton>
+        <NaButton negative="success" onClick={()=>{clickFn('success')}} value="1212"></NaButton>
         <span class={`ml-2`}></span>
         <NaButton negative="warning" value="2323"></NaButton>
         <span class={`ml-2`}></span>
@@ -54,7 +55,7 @@ let App = () => {
         NaSchedule: <NaSchedule duration={10000} />
       </div> */}
       <div class={"mt-5"}>
-        NaMessage <NaButton onClick={clickFn}>click</NaButton>
+        Message <NaButton onClick={clickFn}>click</NaButton>
       </div>
 
       <div class={"mt-5"}>

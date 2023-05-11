@@ -26,6 +26,12 @@ export default defineConfig({
       fileName: 'lib',
     },
     rollupOptions: {
+      external: ['lodash-es'],
+      output: {
+        globals: {
+          vue: 'lodash-es',
+        },
+      },
     }
   }
 })

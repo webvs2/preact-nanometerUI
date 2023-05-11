@@ -1,8 +1,17 @@
 @include b(radio){
     border: solid 1px red;
     display: inline-block;
-    
+    position: relative
+    label{
+        
+    }
+    input{
+        position: absolute;
+        top:0;
+        left: 0;
+
+    }
     @include e(label){
-        @apply font-size(14px);
+        @apply text-sm;
     }
 }

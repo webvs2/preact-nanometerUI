@@ -1,4 +1,4 @@
-import { type } from "os";
+import "./style.scss";
 import {
   Attributes,
   Component,
@@ -14,7 +14,6 @@ interface radioProps {
   disabled?: boolean;
   value?: any;
 }
-
 class radio extends Component<radioProps> {
   render(props): ComponentChild {
     return (
@@ -28,13 +27,15 @@ class radio extends Component<radioProps> {
           checked={props.checked || props.defaultChecked}
           value={props.value}
         />
-        <label for={props.value} class="peer-checked/published:text-sky-500">
-          {props.children}
+        <label for={props.value} class={`peer-checked/published:text-sky-500`}>
         </label>
+        <span>
+        {props.children}
+        </span>
       </span>
     );
   }
 }
 
 export default radio;
-export type {radioProps}
+export type { radioProps };

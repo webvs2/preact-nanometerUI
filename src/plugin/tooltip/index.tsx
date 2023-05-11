@@ -18,17 +18,8 @@ import {
   arrow,
 } from "@floating-ui/react";
 
-import outStyles from "./style.scss";
-// outStyles.split(/\.+[a-zA-Z]+.+(?=\{)/g).map((item,index)=>{
-//     console.log(item)
-// })
-let useCss: any = {};
+import "./style.scss";
 
-outStyles.replace(/[a-zA-Z]+.+(?=\{)/g, function (con) {
-  useCss[trim(con)] = "";
-  console.log(useCss, "con");
-  return "";
-});
 
 interface tooltipProps {
   value?: string | number;
@@ -88,7 +79,7 @@ function Tooltip(props: tooltipProps) {
           >
             {/* staticOffset='end' */}
             <FloatingArrow
-              fill="#333"
+              fill="#4B5563"
               ref={arrowRef}
               context={context}
             ></FloatingArrow>

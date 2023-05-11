@@ -1,6 +1,6 @@
 .Tooltip {
   display: inline-block;
-  @apply bg-gray-600 shadow-md  px-2  py-2 rounded-lg text-white text-xs;
+  @apply bg-gray-600 shadow-md  px-2  py-2 rounded-sm text-white text-xs;
 }
 @include b(tooltip) {
   display: inline-block;

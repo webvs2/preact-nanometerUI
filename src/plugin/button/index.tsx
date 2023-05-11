@@ -4,7 +4,7 @@ import { sizeProps, typeProps } from "@toolkit/baseType";
 interface buttonProps extends sizeProps {
   value?: string;
   negative?: typeProps;
-  onClick?: () => void;
+  onClick?: any;
   children?: any;
   disabled?: boolean;
   nativeType?: "button" | "submit" | "reset";
