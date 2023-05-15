@@ -5,7 +5,7 @@ import button from "./button/index";
 import badge from "./badge/index";
 import input from "./input/index";
 import select from "./select/index";
-import radio from "./radio/index";
+import radio from "./radio/radio";
 import Tooltip from "./tooltip/index";
 
 // const modules = import.meta.glob("./*/index.tsx", { import: 'default'});
@@ -20,7 +20,7 @@ import Tooltip from "./tooltip/index";
 export {
   button as NaButton,
   badge as NaBadge,
-  card as NaCard,
+  card as Card,
   Tooltip,
   message ,
   schedule as NaSchedule,

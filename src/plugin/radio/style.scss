@@ -1,17 +1,18 @@
-@include b(radio){
-    border: solid 1px red;
-    display: inline-block;
-    position: relative
-    label{
-        
-    }
-    input{
-        position: absolute;
-        top:0;
-        left: 0;
+@include b(radio) {
+  border: solid 1px red;
+  display: inline-block;
+  position: relative;
 
-    }
-    @include e(label){
-        @apply text-sm;
-    }
+  input {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: solid 1px red;
+    left: 0;
+  }
+  @include e(label) {
+    padding-left: 20px;
+    @apply text-sm;
+  }
 }

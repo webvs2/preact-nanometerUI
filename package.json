@@ -30,6 +30,7 @@
     "@types/lodash-es": "^4.17.7",
     "@types/node": "^18.16.1",
     "autoprefixer": "^10.4.14",
+    "classnames": "^2.3.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "lodash-es": "^4.17.21",
@@ -49,6 +50,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.24.0",
+    "bem-classnames": "^1.0.7",
     "vite-project": "link:"
   }
 }

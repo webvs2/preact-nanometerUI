@@ -3,7 +3,7 @@ import {
   NaButton,
   NaSchedule,
   NaBadge,
-  NaCard,
+  Card,
   message,
   Input,
   Select,
@@ -21,11 +21,11 @@ let App = () => {
     <div class={"text-center"}>
       <div class="text-center">
         {/* <img src={logo} class={"w-60 p-0  " }></img> */}
-        <h1 class=" f-Source text-cyan-600 mt-20  text-4xl p-1 ">
+        <h1  style={`font-weight:600`} class=" f-Source from-fuchsia-500 text-fuchsia-600 mt-20  text-4xl p-1  ">
           holle！Nanometer UI
         </h1>
       </div>
-      <NaCard title="按钮" isShowTopBar={false} isShowBottomBar={true}>
+      <Card title="按钮" isShowTopBar={false} isShowBottomBar={true}>
         <div>Various buttons</div>
         Button: <NaButton value="默认按钮"  />
         Button negative: <NaButton value="默认按钮"  />
@@ -35,7 +35,7 @@ let App = () => {
         <NaButton negative="warning" value="2323"></NaButton>
         <span class={`ml-2`}></span>
         <NaButton negative="danger" value="4545"></NaButton>
-      </NaCard>
+      </Card>
 
       <div class={"m-5"}>
         <NaBadge value="hot">
@@ -59,7 +59,13 @@ let App = () => {
       </div>
 
       <div class={"mt-5"}>
+        <Card>
         NaInput <Input value="1212" />
+        <div>
+          <Input value="1212" disabled />
+        </div>
+        </Card>
+
       </div>
       <div class={"mt-5"}>
         Select: <Select />

@@ -32,7 +32,8 @@ function Tooltip(props: tooltipProps) {
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
-    placement: "top",
+    placement: "right",
+
     // Make sure the tooltip stays on the screen
     whileElementsMounted: autoUpdate,
     middleware: [

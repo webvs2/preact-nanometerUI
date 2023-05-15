@@ -1,0 +1,10 @@
+@include b('form-item'){
+    border: solid red 1px;
+    @include e('label'){
+        border: solid blue 1px;
+    }
+    @include e('content'){
+        border: solid green 1px;
+    }
+    
+}

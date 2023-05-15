@@ -3,29 +3,31 @@
   @include e(normal) {
     @apply py-2 px-3;
   }
-  @include e(large) {
-    border: solid red 1px;
-    @apply py-4 px-6 text-xl;
+
+  $sizeMap: (
+    small: 1,
+    medium: 2,
+    large: 3,
+    normal: 2,
+  );
+  @each $size, $i in $sizeMap {
+    @include e(#{$size}) {
+      @apply py-#{$i} px-#{$i + 2};
+    }
   }
+
   @include m(disabled) {
     @apply opacity-50 cursor-not-allowed;
   }
-  @include m(success) {
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-    pointer-events: auto;
-     @apply bg-green-500 text-white hover:text-cyan-100;
-  }
-  @include m(warning) {
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-    pointer-events: auto;
-     @apply bg-yellow-500 text-white hover:text-cyan-100;
-  }
-  @include m(danger) {
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-    pointer-events: auto;
-     @apply bg-red-500 text-white hover:text-cyan-100;
-  }
-  // @include m(){
 
-  // }
+
+  @each $state, $color in $stateMap {
+    @include m(#{$state}) {
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+      pointer-events: auto;
+      @apply bg-#{$color}-500 text-white hover:text-white;
+    }
+  }
+
+
 }

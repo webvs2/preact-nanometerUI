@@ -1,18 +1,39 @@
+@include b(input) {
+  font-size: 14px;
 
-@include b(input){
-   font-size: 14px;
-   
-    &[type="text"]{
-        transition:all .2s;
-        @apply border border-gray-300 rounded-md px-2 py-1 ;
-        outline: none;
-        &:hover{
-           @apply border border-gray-400;
-        }
-        &:focus{
-           @apply border border-sky-400;
-        }
+  &[type="text"] {
+    transition: all 0.2s;
+    @apply border border-gray-300 rounded-md px-2 py-1;
+    outline: none;
+    &:hover {
+      @apply border border-gray-400;
     }
-       
+    &:focus {
+      @apply border border-sky-400;
+    }
+  }
+  @include e(disabled) {
+    @apply bg-gray-100 cursor-not-allowed;
+    //  pointer-events: none;
+    opacity: 0.4;
 
+    &[type="text"] {
+      @apply border border-gray-200;
+    }
+  }
+}
+@include b(input-box){
+   position: relative;
+   @include e(icon){
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+   }
+   @include e(prefix){
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10px;
+   }
 }
