@@ -39,7 +39,6 @@ class input extends Component<inputProps, any> {
     console.log(this.state);
   }
   onChange = (e) => {
-    console.log(e.target.value);
     this.setState({ value: e.target.value });
     this.props.onChange && this.props.onChange(e.target.value, e);
   };
@@ -55,7 +54,6 @@ class input extends Component<inputProps, any> {
     return (
       <>
       <div class={`na-input-box`}>
-       {state.value}
         <input
           id={props.id}
           ref={props.ref}

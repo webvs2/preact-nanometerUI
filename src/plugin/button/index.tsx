@@ -1,7 +1,9 @@
-import "./src/style.scss";
+import "./style.scss";
 import { sizeProps, typeProps } from "@toolkit/baseType";
 // import {classEsm} from "@toolkit/helper";
 import classNames from "classNames";
+import { bemStr } from "@/toolkit/bem";
+let  bem = bemStr("button");
 
 interface buttonProps extends sizeProps {
   value?: string;
@@ -11,17 +13,21 @@ interface buttonProps extends sizeProps {
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
   form?: string;
+  icon?: string;
 }
 
 function buttonComponent(props: buttonProps) {
+  console.log("bem('disabled')",bem('',props.negative))
   let btnClass = classNames({
-    "na-button": true,
+    'na-button': true,
     "hover:bg-gray-300": !props.negative,
-    "na-button--disabled": props.disabled,
-    [`na-button--${props.negative}`]: props.negative,
-    [`na-button__${props.size||'normal'}`]: true,
+    [bem('','disabled')]: props.disabled,
+    [bem('',props.negative)]: true,
+    [bem(props.size||'normal')]: true,
   });
+
   return (
+    
     <button
       disabled={props.disabled}
       type={props.type || "button"}
@@ -30,6 +36,7 @@ function buttonComponent(props: buttonProps) {
       name='button'
     >
       {props.value || props.children}
+      {props.icon && <i class={`iconfont ${props.icon}`}></i>}
     </button>
   );
 }

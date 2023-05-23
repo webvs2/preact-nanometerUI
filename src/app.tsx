@@ -1,42 +1,59 @@
 import { render } from "preact";
 import {
-  NaButton,
+  Button,
   NaSchedule,
   NaBadge,
   Card,
   message,
   Input,
   Select,
-  NaRadio,
+  Radio,
   Tooltip,
+  RadioGroup,
 } from "./plugin/index";
+// import { createRequire } from "module";
+import Logo from "./logo";
+// perspective
+import Perspective from "./components/perspective/index";
 
-
-function clickFn(type='error') {
-  if(typeof type =='object') type ='error'
-  message(type, "这是一个消息")
+function clickFn(type = "error") {
+  if (typeof type == "object") type = "error";
+  message(type, "这是一个消息");
 }
 let App = () => {
   return (
     <div class={"text-center"}>
       <div class="text-center">
-        {/* <img src={logo} class={"w-60 p-0  " }></img> */}
-        <h1  style={`font-weight:600`} class=" f-Source from-fuchsia-500 text-fuchsia-600 mt-20  text-4xl p-1  ">
+        <h1
+          style={`font-weight:600`}
+          class=" f-Source from-fuchsia-500 text-fuchsia-600 mt-20  text-4xl p-1  "
+        >
           holle！Nanometer UI
         </h1>
+        {/* <Perspective></Perspective> */}
       </div>
-      <Card title="按钮" isShowTopBar={false} isShowBottomBar={true}>
+      <Card
+        width="500px"
+        title="按钮"
+        isShowTopBar={false}
+        isShowBottomBar={true}
+      >
         <div>Various buttons</div>
-        Button: <NaButton value="默认按钮"  />
-        Button negative: <NaButton value="默认按钮"  />
-        <NaButton disabled value="1212"></NaButton>
-        <NaButton negative="success" onClick={()=>{clickFn('success')}} value="1212"></NaButton>
+        Button: <Button value="默认按钮" />
+        Button negative: <Button value="默认按钮" />
+        <Button disabled>禁用状态</Button>
+        <Button
+          negative="success"
+          onClick={() => {
+            clickFn("success");
+          }}
+          value="1212"
+        ></Button>
         <span class={`ml-2`}></span>
-        <NaButton negative="warning" value="2323"></NaButton>
+        <Button negative="warning" value="2323"></Button>
         <span class={`ml-2`}></span>
-        <NaButton negative="danger" value="4545"></NaButton>
+        <Button negative="danger" value="4545"></Button>
       </Card>
-
       <div class={"m-5"}>
         <NaBadge value="hot">
           <span> 角标 </span>
@@ -45,43 +62,45 @@ let App = () => {
           <span> 角标 </span>
         </NaBadge>
 
-        <NaButton onClick={clickFn}>
+        <Button onClick={clickFn}>
           <NaBadge size="large" value="cool">
             <span> 按钮角标</span>
           </NaBadge>
-        </NaButton>
+        </Button>
       </div>
-      {/* <div class={"m-5"}>
-        NaSchedule: <NaSchedule duration={10000} />
-      </div> */}
+
       <div class={"mt-5"}>
-        Message <NaButton onClick={clickFn}>click</NaButton>
+        Message <Button onClick={clickFn}>click</Button>
       </div>
 
       <div class={"mt-5"}>
         <Card>
-        NaInput <Input value="1212" />
-        <div>
-          <Input value="1212" disabled />
-        </div>
+          NaInput <Input value="1212" />
+          <div>
+            <Input value="1212" disabled />
+          </div>
         </Card>
-
       </div>
       <div class={"mt-5"}>
         Select: <Select />
       </div>
       <div class={"mt-5"}>
-        radio: <NaRadio value={1}> A</NaRadio>
-        <NaRadio value={2}>B</NaRadio>
+        radio: <Radio value={1}> A</Radio>
+        <Radio value={2}>B</Radio>
       </div>
       <div class={"mt-5"}>
-      tooltip: <Tooltip value={"我是提示"}>1212</Tooltip>
+        tooltip: <Tooltip value={"我是提示"}>1212</Tooltip>
       </div>
-      <div class={`mt-10`} style="margin-top:800px">
-        12
+      {/* style="margin-top:800px" */}
+      <div class={`mt-10`}>
+        RadioGroup:{" "}
+        <RadioGroup>
+          <Radio value={2}>B</Radio>
+          <Radio value={1}>A</Radio>
+          <Radio value={3}>C</Radio>
+        </RadioGroup>
       </div>
     </div>
   );
 };
-
 render(App(), document.getElementById("app"));

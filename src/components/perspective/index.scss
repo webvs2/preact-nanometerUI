@@ -1,0 +1,142 @@
+.perspectiveBox {
+  display: grid;
+  place-content: center;
+  min-height: 50;
+  overflow: hidden;
+
+  // width: 500px;
+  display: inline-block;
+}
+.perspectiveBox .left,
+.perspectiveBox .right {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+}
+.perspectiveBox .left {
+  left: 0;
+}
+.perspectiveBox .left:hover ~ #stage {
+  transform: rotateY(20deg);
+}
+.perspectiveBox .right {
+  right: 0;
+}
+.perspectiveBox .right:hover ~ #stage {
+  transform: rotateY(-20deg);
+}
+.perspectiveBox #stage {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  width: 700px;
+  height: 600px;
+  transition: transform 1.5s;
+  -webkit-animation: 2.5s initial_in;
+  animation: 2.5s initial_in;
+}
+.perspectiveBox #stage .piece {
+  --rotation: 0deg;
+}
+.perspectiveBox #stage .piece:not(.seven_vertical),
+.perspectiveBox #stage .piece.seven_vertical .shape {
+  position: absolute;
+  // background:  linear-gradient(#d946ef, #E02FD8);
+  background:#d946ef ;
+  border-radius: 100px;
+  box-shadow: inset 10px 10px 10px -10px rgba(255, 204, 204, 0.533),
+    inset -10px -10px 10px -10px rgba(68, 0, 0, 0.533);
+}
+.perspectiveBox #stage .piece.seven_vertical .shape {
+  width: 100%;
+  height: 100%;
+}
+.perspectiveBox #stage .piece:before,
+.perspectiveBox #stage .piece.seven_vertical:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 1px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.133);
+}
+.perspectiveBox #stage .seven_vertical {
+  width: 20px;
+  height: 160px;
+  transform: translate3d(208px, 280px, 116px);
+}
+.perspectiveBox #stage .seven_vertical:before {
+  left: 33px;
+  bottom: 22px;
+}
+.perspectiveBox #stage .seven_vertical.seven_vertical:after {
+  left: -40px;
+  bottom: 132px;
+
+}
+.perspectiveBox #stage .seven_vertical .shape {
+
+  transform: translate3d(-25px,-0px,0) rotateZ(-35deg);
+}
+.perspectiveBox #stage .seven_top {
+  width: 24px;
+  height: 180px;
+  transform: translate3d(120px, 121px, 50px) rotateX(0deg);
+}
+.perspectiveBox #stage .seven_middle {
+  width: 14px;
+  height: 108px;
+  transform: translate3d(268px, 130px, 401px) rotateY(25deg) ;
+}
+
+.perspectiveBox #stage .first_zero_top {
+  width: 140px;
+  height: 24px;
+  transform: translate3d(434px, 109px, 50px) rotateY(-10deg);
+}
+.perspectiveBox #stage .first_zero_left {
+  width: 23px;
+  height: 192px;
+  transform: translate3d(434px, 109px, -50px) rotateY(-10deg);
+}
+.perspectiveBox #stage .first_zero_right {
+  width: 16px;
+  height: 119px;
+  transform: translate3d(481px, 118px, 346px) rotateY(5deg);
+}
+.perspectiveBox #stage .first_zero_bottom {
+  width: 142px;
+  height: 20px;
+  transform: translate3d(425px, 233px, 250px) rotateY(15deg);
+}
+
+.perspectiveBox #stage .shadow {
+  position: absolute;
+  width: 1200px;
+  height: 600px;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 10px 0 0 rgba(0, 0, 0, 0.5);
+  opacity: 0.5;
+  filter: blur(40px);
+  transform: translate3d(-200px, 150px, 100px) rotateX(990deg);
+}
+@-webkit-keyframes initial_in {
+  0%,
+  20% {
+    transform: rotateY(20deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes initial_in {
+  0%,
+  20% {
+    transform: rotateY(20deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}

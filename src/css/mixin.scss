@@ -22,7 +22,7 @@ $state-prefix: "is-";
       $unit +
       ","};
   }
-  // @debug $currentSelector;
+  @debug $currentSelector;
   @if hitAllSpecialNestRule($selector) {
     @at-root {
       #{$selector} {

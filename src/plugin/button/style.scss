@@ -1,9 +1,11 @@
 @include b(button) {
   @apply antialiased  text-gray-700  cursor-pointer transition text-xs  duration-500 rounded-md  hover:text-current;
-  @include e(normal) {
-    @apply py-2 px-3;
+  // @include e(normal) {
+  //   @apply py-2 px-3;
+  // }
+  @include m(disabled) {
+    @apply opacity-50 cursor-not-allowed;
   }
-
   $sizeMap: (
     small: 1,
     medium: 2,
@@ -15,12 +17,6 @@
       @apply py-#{$i} px-#{$i + 2};
     }
   }
-
-  @include m(disabled) {
-    @apply opacity-50 cursor-not-allowed;
-  }
-
-
   @each $state, $color in $stateMap {
     @include m(#{$state}) {
       box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
@@ -28,6 +24,4 @@
       @apply bg-#{$color}-500 text-white hover:text-white;
     }
   }
-
-
 }

@@ -16,7 +16,7 @@ let BottomBar = function (props) {
 const card = (props) => {
   let { isShowBottomBar, isShowTopBar, title } = props;
   return (
-    <div class={`na-card`}>
+    <div class={`na-card`} style={{width:props.width||'500px'}}>
       {isShowTopBar && <TopBar title={title} />}
       <div class={`na-card__body`}>{props.children}</div>
       {isShowBottomBar && <BottomBar></BottomBar>}

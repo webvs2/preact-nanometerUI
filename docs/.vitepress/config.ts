@@ -2,8 +2,8 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: "Nanometer",
+  description: "About Preact's out-of-the-box UI framework",
   lastUpdated: true,
   themeConfig: {
     search: {

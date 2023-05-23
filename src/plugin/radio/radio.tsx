@@ -1,42 +1,73 @@
 import "./style.scss";
 import {
-  Attributes,
   Component,
   ComponentChild,
-  ComponentChildren,
   createContext,
-  Ref,
-} from "preact";  
-import { useContext } from 'preact/hooks'
+} from "preact";
+import {bemStr} from "@toolkit/bem";
+let bem = bemStr("radio");
+// import { useContext,useMemo } from "preact/hooks";
+import {radioGroupContext} from "./radioGroup";
+
 import classNames from "classNames";
-const Username = createContext(null)
 interface radioProps {
   autoFocus?: boolean;
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
   value?: any;
+  click?: Function;
+  change?: Function;
 }
-let btnClass = classNames({
-  "na-radio": true,
-  "checked:bg-blue-500": true,
-});
+
+
 class radio extends Component<radioProps> {
-  render(props): ComponentChild {
+  state  = {
+    checked: false,
+  };
+  constructor(props: radioProps) {
+    super(props);
+    this.state.checked = props.checked || props.defaultChecked || false;
+  }
+  click(e) {
+    let { props, state } = this;
+    this.setState({ checked: e.target.checked });
+    props.click && props.click(state.checked, e);
+  }
+  change(e) {
+    let { props, state } = this;
+    props.change && props.change(state.checked, e);
+  }
+
+  render(props, state ): ComponentChild {
+    const btnClass = classNames(
+      "na-radio",
+      {
+        "na-radio--checked": state.checked,
+      }
+    )
+// console.log(radioGroupContext);
     return (
-      <span class={`na-radio`}>
-        <input
-          id={props.value}
-          class={btnClass}
-          type="radio"
-          name={props.value}
-          autoFocus={props.autoFocus}
-          checked={props.checked || props.defaultChecked}
-          value={props.value}
-        />
-        <label for={props.value} class={`na-radio__label `}></label>
-        <span>{props.children}</span>
-      </span>
+      <label class={btnClass} >
+        <span class={bem('input')}>
+          <input
+            onChange={this.change.bind(this)}
+            id={props.value}
+            onClick={this.click.bind(this)}
+            type="radio"
+            name={props.value}
+            disabled={props.disabled}
+            autoFocus={props.autoFocus}
+            checked={state.checked}
+            value={props.value}
+          ></input>
+    
+          <span class={`na-radio__inner `}></span>
+        </span>
+        <div class={`na-radio__label`}>
+          {props.children}      
+        </div>
+      </label>
     );
   }
 }

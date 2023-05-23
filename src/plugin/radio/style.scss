@@ -1,18 +1,67 @@
 @include b(radio) {
-  border: solid 1px red;
-  display: inline-block;
   position: relative;
-
-  input {
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    border: solid 1px red;
-    left: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items:center;
+  white-space: nowrap;
+  outline: none;
+  user-select: none;
+  margin-right: 32px;
+  
+  span {
+    padding-bottom: 0;
+    // display: inline-block;
+  }
+  @include e(input) {
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    position: relative;
+    input {
+      opacity: 0;
+      outline: none;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+    }
+    @include e(inner) {
+      width: 15px;
+      height: 15px;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      @apply border-slate-500 border rounded-full ;
+      @apply transition duration-100 ease-in-out;
+    }
   }
   @include e(label) {
-    padding-left: 20px;
-    @apply text-sm;
+    position: relative;
+    cursor: pointer;
+
+    display: inline-block;
+    box-sizing: border-box;
+    @apply  pl-2;  
+  }
+  @include m(checked) {
+    @include e(inner) {
+      @apply bg-blue-600 border-blue-500;
+      &::after{
+        content:"";
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color:#fff;
+        // border-radius: 50%;
+        left: calc(50% - 2px);
+        top: calc(50% - 2px);
+        @apply rounded-full;
+      }
+    }
+  
   }
 }

@@ -1,0 +1,30 @@
+.img-bg-box {
+    position: relative;
+    width: 300px;
+    display: inline-block;
+    height: 300px;
+    margin: 70px;
+ 
+    .img-bg {
+      background: linear-gradient(-45deg, #9F62FF 50%, #47caff 50%);
+      display: inline-block;
+      padding: 20px;
+      filter: blur(56px);
+      z-index: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+    img {
+      z-index: 12;
+      top: 0;
+      left: 0;
+      // height: 100px;
+      // filter: blur(56px);
+      
+      width: 300px;
+      position: absolute;
+    }
+  }
