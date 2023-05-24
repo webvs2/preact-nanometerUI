@@ -1,8 +1,9 @@
 $z-base:100;
-$stateMap: (
+$stateColorMap: (
     success: green,
-    warning: yellow,
+    warning: amber,
     danger: red,
-    info: blue,
+    info: slate,
+    primary: sky,
   );
   $shadow-base: 0 2px 12px 0 rgba(0, 0, 0, 0.1);

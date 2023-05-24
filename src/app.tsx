@@ -33,26 +33,76 @@ let App = () => {
         {/* <Perspective></Perspective> */}
       </div>
       <Card
-        width="500px"
+        width="600px"
         title="按钮"
         isShowTopBar={false}
         isShowBottomBar={true}
       >
         <div>Various buttons</div>
-        Button: <Button value="默认按钮" />
-        Button negative: <Button value="默认按钮" />
-        <Button disabled>禁用状态</Button>
-        <Button
-          negative="success"
-          onClick={() => {
-            clickFn("success");
-          }}
-          value="1212"
-        ></Button>
-        <span class={`ml-2`}></span>
-        <Button negative="warning" value="2323"></Button>
-        <span class={`ml-2`}></span>
-        <Button negative="danger" value="4545"></Button>
+        <div>
+          Button: <Button >Button</Button>
+          <Button disabled>禁用状态</Button>
+        </div>
+
+        {/* Button type: <Button value="默认按钮" /> */}
+        <div class={"mt-2"}>
+          Button type:{" "}
+          <Button
+            type="success"
+            onClick={() => {
+              clickFn("success");
+            }}
+          >
+            成功
+          </Button>
+        
+          <Button type="warning">警告</Button>
+         
+          <Button type="danger">危险</Button>
+      
+          <Button type="info">文本</Button>
+    
+          <Button type="primary">普通</Button>
+        </div>
+        <div class={"mt-2"}>
+          Button plain :  <span class={'ml-2'}></span>
+          <Button type="success" plain>
+            成功
+          </Button>
+          <Button type="warning" plain>
+            警告
+          </Button>
+          <Button type="info" plain>
+            文本
+          </Button>
+          <Button type="danger" plain>
+            危险
+          </Button>
+        </div>
+        <div class={`mt-2`}>
+        Button type   disabled : <span class={'ml-2'}></span>
+        <Button type="primary"  disabled>禁用</Button>
+        <Button type="danger"  disabled>禁用</Button>
+        </div>
+        <div class={`mt-2`}>
+        Button type  size : <span class={'ml-2'}></span>
+        <Button type="primary" size="large">大的</Button>
+        <Button type="primary" size="normal">中的</Button>
+        <Button type="primary" size="small">小的</Button>
+
+        </div>
+        <div class={`mt-2`}>
+        Button type  round: <span class={'ml-2'}></span>
+        <Button type="primary" round>普通</Button>
+        <Button type="danger" round>危险</Button>
+        <Button type="success" round>成功</Button>
+        <Button type="warning" round>警告</Button>
+
+        </div>
+        <div>
+          button loading : <span class={'ml-2'}></span>
+          <Button type="primary" loading>loading</Button>
+        </div>
       </Card>
       <div class={"m-5"}>
         <NaBadge value="hot">

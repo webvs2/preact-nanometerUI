@@ -13,6 +13,7 @@ let classes = {
 };
 
  const bemStr = (block: string) => {
+  // e m s
   return (element?: string, modifier?: string, state?: string):string => {
     let className =classes.$namespace+classes. $statePrefix+ block;
     if (element) {

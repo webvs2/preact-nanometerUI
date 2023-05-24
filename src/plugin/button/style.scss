@@ -1,27 +1,103 @@
 @include b(button) {
-  @apply antialiased  text-gray-700  cursor-pointer transition text-xs  duration-500 rounded-md  hover:text-current;
-  // @include e(normal) {
-  //   @apply py-2 px-3;
-  // }
+  @apply antialiased  text-gray-700  cursor-pointer transition  ease-in-out  rounded-md  hover:text-current;
+  @apply ml-2;
+  @include m(text) {
+    background-color: inherit;
+    transition-duration: 350ms;
+    @apply hover:bg-gray-300;
+  }
+
   @include m(disabled) {
     @apply opacity-50 cursor-not-allowed;
   }
-  $sizeMap: (
-    small: 1,
-    medium: 2,
-    large: 3,
-    normal: 2,
-  );
-  @each $size, $i in $sizeMap {
-    @include e(#{$size}) {
-      @apply py-#{$i} px-#{$i + 2};
-    }
+
+  @include e(small) {
+    font-size: 12px;
+    padding: 0.4rem 1rem;
   }
-  @each $state, $color in $stateMap {
+  @include e(medium) {
+    font-size: 14px;
+    padding: 0.5rem 1.6rem;
+  }
+  @include e(large) {
+    font-size: 16px;
+    padding: 0.5rem 1.8rem;
+  }
+  @include e(normal) {
+    font-size: 14px;
+    padding: 0.4rem 1.6rem;
+  }
+
+  @each $state, $color in $stateColorMap {
     @include m(#{$state}) {
       box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
       pointer-events: auto;
-      @apply bg-#{$color}-500 text-white hover:text-white;
+      @apply #{'bg-'+ $color + '-500'};
+      @apply #{'border-'+$color+'-300'};
+      @apply border text-white;
+
+      &:hover {
+        @apply bg-#{$color+'-400'};
+        @apply text-slate-50;
+      }
     }
   }
+
+  @include e(plain) {
+    background-color: inherit;
+    @apply text-gray-600;
+  }
+  @include e(round) {
+    @apply rounded-full;
+  }
 }
+
+@mixin after($color, $width) {
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    inset: 0;
+    border-radius: inherit;
+    // background-color: red;
+    opacity: 0;
+    box-shadow: 0 0 0 6px red;
+    z-index: -1;
+    transition: 0.3s;
+  }
+  &:active::after {
+    transition: 0s;
+    box-shadow: none;
+    opacity: 0.4;
+  }
+}
+
+// .after {
+//   position: relative;
+//   z-index: 1;
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+//     inset: 0;
+//     border-radius: inherit;
+//     // background-color: red;
+//     opacity: 0;
+//     box-shadow: 0 0 0 6px red;
+//     z-index: -1;
+//     transition: 0.3s;
+//   }
+//   &:active::after {
+//     transition: 0s;
+//     box-shadow: none;
+//     opacity: 0.4;
+//   }
+// }

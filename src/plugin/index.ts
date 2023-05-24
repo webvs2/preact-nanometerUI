@@ -8,14 +8,7 @@ import select from "./select/index";
 import radio from "./radio/radio";
 import Tooltip from "./tooltip/index";
 import radioGroup from "./radio/radioGroup";
-// const modules = import.meta.glob("./*/index.tsx", { import: 'default'});
-// const components: any = {};
-// Object.keys(modules).map((item: string) => {
-//     modules[item]().then((module: any) => {
-//         components[module.name] = module;
-//     })
 
-// });
 
 export {
   button as Button,
