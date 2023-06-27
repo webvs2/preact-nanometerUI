@@ -5,7 +5,7 @@ title:  nanometer-ui
 
 hero:
   name: "nanometer-ui"
-  text: "一个基于preact的ui库"
+  text: "Redefine ui usage"
   tagline: About Preact's out-of-the-box UI framework
   image:
     src: ../l.png

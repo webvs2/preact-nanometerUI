@@ -10,7 +10,12 @@ import {
   Radio,
   Tooltip,
   RadioGroup,
-} from "./plugin/index";
+} from "./plugins/index";
+if (process.env.NODE_ENV==='development') {
+  // Must use require here as import statements are only allowed
+  // to exist at top-level.
+  import("preact/debug");
+}
 // import { createRequire } from "module";
 import Logo from "./logo";
 // perspective
@@ -20,6 +25,7 @@ function clickFn(type = "error") {
   if (typeof type == "object") type = "error";
   message(type, "这是一个消息");
 }
+let shijei =''
 let App = () => {
   return (
     <div class={"text-center"}>
@@ -143,13 +149,19 @@ let App = () => {
       </div>
       {/* style="margin-top:800px" */}
       <div class={`mt-10`}>
-        RadioGroup:{" "}
-        <RadioGroup>
+        RadioGroup:
+        <RadioGroup value={shijei}>
           <Radio value={2}>B</Radio>
           <Radio value={1}>A</Radio>
           <Radio value={3}>C</Radio>
         </RadioGroup>
+        <label>
+          {shijei}
+        </label>
       </div>
+    <div class={'mt-10 bg-cyan-50 p-2 to-red-500'}>
+    footer
+    </div>
     </div>
   );
 };

@@ -36,7 +36,6 @@ class input extends Component<inputProps, any> {
   constructor(props: inputProps) {
     super();
     this.state.value = props.value;
-    console.log(this.state);
   }
   onChange = (e) => {
     this.setState({ value: e.target.value });
