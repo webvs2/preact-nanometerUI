@@ -10,8 +10,11 @@ import {
   Radio,
   Tooltip,
   RadioGroup,
+  Menu,
+  MenuItem,
 } from "./plugins/index";
-if (process.env.NODE_ENV==='development') {
+
+if (process.env.NODE_ENV === "development") {
   // Must use require here as import statements are only allowed
   // to exist at top-level.
   import("preact/debug");
@@ -25,7 +28,7 @@ function clickFn(type = "error") {
   if (typeof type == "object") type = "error";
   message(type, "这是一个消息");
 }
-let shijei =''
+let shijei = "";
 let App = () => {
   return (
     <div class={"text-center"}>
@@ -46,7 +49,7 @@ let App = () => {
       >
         <div>Various buttons</div>
         <div>
-          Button: <Button >Button</Button>
+          Button: <Button>Button</Button>
           <Button disabled>禁用状态</Button>
         </div>
 
@@ -61,17 +64,13 @@ let App = () => {
           >
             成功
           </Button>
-        
           <Button type="warning">警告</Button>
-         
           <Button type="danger">危险</Button>
-      
           <Button type="info">文本</Button>
-    
           <Button type="primary">普通</Button>
         </div>
         <div class={"mt-2"}>
-          Button plain :  <span class={'ml-2'}></span>
+          Button plain : <span class={"ml-2"}></span>
           <Button type="success" plain>
             成功
           </Button>
@@ -86,28 +85,46 @@ let App = () => {
           </Button>
         </div>
         <div class={`mt-2`}>
-        Button type   disabled : <span class={'ml-2'}></span>
-        <Button type="primary"  disabled>禁用</Button>
-        <Button type="danger"  disabled>禁用</Button>
+          Button type disabled : <span class={"ml-2"}></span>
+          <Button type="primary" disabled>
+            禁用
+          </Button>
+          <Button type="danger" disabled>
+            禁用
+          </Button>
         </div>
         <div class={`mt-2`}>
-        Button type  size : <span class={'ml-2'}></span>
-        <Button type="primary" size="large">大的</Button>
-        <Button type="primary" size="normal">中的</Button>
-        <Button type="primary" size="small">小的</Button>
-
+          Button type size : <span class={"ml-2"}></span>
+          <Button type="primary" size="large">
+            大的
+          </Button>
+          <Button type="primary" size="normal">
+            中的
+          </Button>
+          <Button type="primary" size="small">
+            小的
+          </Button>
         </div>
         <div class={`mt-2`}>
-        Button type  round: <span class={'ml-2'}></span>
-        <Button type="primary" round>普通</Button>
-        <Button type="danger" round>危险</Button>
-        <Button type="success" round>成功</Button>
-        <Button type="warning" round>警告</Button>
-
+          Button type round: <span class={"ml-2"}></span>
+          <Button type="primary" round>
+            普通
+          </Button>
+          <Button type="danger" round>
+            危险
+          </Button>
+          <Button type="success" round>
+            成功
+          </Button>
+          <Button type="warning" round>
+            警告
+          </Button>
         </div>
-        <div>
-          button loading : <span class={'ml-2'}></span>
-          <Button type="primary" loading>loading</Button>
+        <div class={`mt-2`}>
+          button loading : <span class={"ml-2"}></span>
+          <Button type="primary" loading>
+            loading
+          </Button>
         </div>
       </Card>
       <div class={"m-5"}>
@@ -155,14 +172,45 @@ let App = () => {
           <Radio value={1}>A</Radio>
           <Radio value={3}>C</Radio>
         </RadioGroup>
-        <label>
-          {shijei}
-        </label>
+        <label>{shijei}</label>
       </div>
-    <div class={'mt-10 bg-cyan-50 p-2 to-red-500'}>
-    footer
-    </div>
+      <div>
+        <Menu label="Edit">
+          {/* 1111 */}
+          <MenuItem label="Undo" onClick={() => console.log("Undo")} />
+          <MenuItem label="Redo" disabled />
+          <MenuItem label="Cut" />
+          <Menu label="Copy as">
+            <MenuItem label="Text" />
+            <MenuItem label="Video" />
+            <Menu label="Image">
+              <MenuItem label=".png" />
+              <MenuItem label=".jpg" />
+              <MenuItem label=".svg" />
+              <MenuItem label=".gif" />
+            </Menu>
+            <MenuItem label="Audio" />
+          </Menu>
+          <Menu label="Share">
+            <MenuItem label="Mail" />
+            <MenuItem label="Instagram" />
+          </Menu>
+        </Menu>
+      </div>
+      <div class={"mt-10 bg-cyan-50 p-2 to-red-500"}>footer</div>
     </div>
   );
 };
 render(App(), document.getElementById("app"));
+
+// {
+// c:1,
+// b(){
+// this.c=2
+// },
+// a(){
+// console.log(this.c)
+// }
+
+// }
+

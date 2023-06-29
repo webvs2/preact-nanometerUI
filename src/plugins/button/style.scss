@@ -13,30 +13,31 @@
 
   @include e(small) {
     font-size: 12px;
-    padding: 0.4rem 1rem;
+    padding: 0.2rem 0.8rem;
   }
   @include e(medium) {
     font-size: 14px;
-    padding: 0.5rem 1.6rem;
+    padding: 0.4rem 1.4rem;
   }
   @include e(large) {
     font-size: 16px;
-    padding: 0.5rem 1.8rem;
+    padding: 0.4rem 1.4rem;
   }
   @include e(normal) {
     font-size: 14px;
-    padding: 0.4rem 1.6rem;
+    padding: 0.4rem 1.2rem;
   }
 
   @each $state, $color in $stateColorMap {
     @include m(#{$state}) {
-      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.1);
       pointer-events: auto;
       @apply #{'bg-'+ $color + '-500'};
       @apply #{'border-'+$color+'-300'};
       @apply border text-white;
 
       &:hover {
+        @apply #{'border-'+$color+'-400'};
         @apply bg-#{$color+'-400'};
         @apply text-slate-50;
       }

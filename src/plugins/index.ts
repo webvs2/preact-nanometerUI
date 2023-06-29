@@ -8,6 +8,7 @@ import select from "./select/index";
 import radio from "./radio/radio";
 import Tooltip from "./tooltip/index";
 import radioGroup from "./radio/radioGroup";
+import { Menu,MenuItem } from "./menu";
 
 
 export {
@@ -20,5 +21,6 @@ export {
   radio as Radio,
   input as Input,
   select as Select,
-  radioGroup as RadioGroup
+  radioGroup as RadioGroup,
+  Menu,MenuItem 
 };

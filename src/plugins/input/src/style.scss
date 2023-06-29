@@ -2,14 +2,19 @@
   font-size: 14px;
 
   &[type="text"] {
-    transition: all 0.2s;
+    transition: all 200ms ease-out;
     @apply border border-gray-300 rounded-md px-2 py-1;
     outline: none;
     &:hover {
-      @apply border border-gray-400;
+      // box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 0 1px #409eff;
+
+      // @apply border border-gray-400;
     }
     &:focus {
-      @apply border border-sky-400;
+      box-shadow: 0 0 0 1px #409eff;
+
+      // @apply border border-sky-400;
     }
   }
   @include e(disabled) {
@@ -22,18 +27,18 @@
     }
   }
 }
-@include b(input-box){
-   position: relative;
-   @include e(icon){
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 10px;
-   }
-   @include e(prefix){
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 10px;
-   }
+@include b(input-box) {
+  position: relative;
+  @include e(icon) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+  }
+  @include e(prefix) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+  }
 }
