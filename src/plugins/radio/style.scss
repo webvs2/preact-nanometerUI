@@ -1,24 +1,27 @@
-@include b(radio) {
+@use '@/css/mixin.scss';
+
+@include mixin.b(radio) {
   position: relative;
   cursor: pointer;
   display: inline-flex;
-  align-items:center;
+  align-items: center;
   white-space: nowrap;
   outline: none;
   user-select: none;
   margin-right: 32px;
-  // border: solid red 1px;
-  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
   span {
     padding-bottom: 0;
-    // display: inline-block;
   }
-  @include e(input) {
+
+  @include mixin.e(input) {
     white-space: nowrap;
     cursor: pointer;
     outline: none;
     display: inline-flex;
     position: relative;
+
     input {
       opacity: 0;
       outline: none;
@@ -30,38 +33,77 @@
       bottom: 0;
       margin: 0;
     }
-    @include e(inner) {
+
+    @include mixin.e(inner) {
       width: 15px;
       height: 15px;
       position: relative;
       cursor: pointer;
       display: inline-block;
-      @apply border-slate-500 border rounded-full ;
-      @apply transition duration-100 ease-in-out;
+      border: 1px solid #d9d9d9;
+      border-radius: 50%;
+      transition: all 0.1s ease-in-out;
     }
   }
-  @include e(label) {
+
+  @include mixin.e(label) {
     position: relative;
     cursor: pointer;
     display: inline-block;
     box-sizing: border-box;
-    @apply  pl-2;  
+    padding-left: 8px;
   }
-  @include m(checked) {
-    @include e(inner) {
-      @apply bg-blue-600 border-blue-500;
-      &::after{
-        content:"";
+
+  @include mixin.m(checked) {
+    @include mixin.e(inner) {
+      background-color: #1890ff;
+      border-color: #1890ff;
+
+      &::after {
+        content: "";
         position: absolute;
         width: 4px;
         height: 4px;
-        background-color:#fff;
-        // border-radius: 50%;
+        background-color: #fff;
         left: calc(50% - 2px);
         top: calc(50% - 2px);
-        @apply rounded-full;
+        border-radius: 50%;
       }
     }
+  }
+
+  @include mixin.m(disabled) {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    @include mixin.e(input) {
+      cursor: not-allowed;
+
+      @include mixin.e(inner) {
+        border-color: #d9d9d9;
+      }
+    }
+
+    @include mixin.e(label) {
+      cursor: not-allowed;
+      color: #999;
+    }
+  }
+}
+
+.na-radio-group {
+  display: inline-flex;
+  flex-direction: column;
   
+  .na-radio {
+    margin-bottom: 8px;
+  }
+}
+
+.na-radio-group--horizontal {
+  flex-direction: row;
+  
+  .na-radio {
+    margin-bottom: 0;
   }
 }

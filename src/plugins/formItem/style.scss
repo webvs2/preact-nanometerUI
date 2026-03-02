@@ -1,9 +1,11 @@
-@include b('form-item'){
+@use '@/css/mixin.scss';
+
+@include mixin.b('form-item'){
     border: solid red 1px;
-    @include e('label'){
+    @include mixin.e('label'){
         border: solid blue 1px;
     }
-    @include e('content'){
+    @include mixin.e('content'){
         border: solid green 1px;
     }
     

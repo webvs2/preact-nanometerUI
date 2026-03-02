@@ -1,95 +1,60 @@
-@charset "utf-8";
-@include b(message) {
-  @include e(box) {
-    @apply text-base fixed rounded-lg   text-left ;
-    min-width: 380px;
-    display: inline-block;
-    justify-content: var(--nan-justify-content);
-    align-items: baseline;
-    padding: var(--nan-padding);
-    top: 0px;
-    left: 50%;
-    font-weight: 350;
-    right: 50%;
-    translate: (-50% 0);
-    .content {
-      @apply overflow-ellipsis  text-justify p-1 pt-2;
-      display: flex;
-      min-width: 100%;
-      span {
-        display: inline-block;
-      }
-    }
+@use '@/css/mixin.scss';
+@use '@/css/variables.scss' as *;
 
-    .icon {
-      @apply mr-1;
-      font-size: 18px;
-      font-weight: 400;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    .bottom {
-      @apply pt-1 absolute bottom-0 left-0 right-0 pl-1 pr-1;
-      bottom: 0px;
-      z-index: $z-base;
-      width: 100%;
-      display: inline-block;
-    }
-  }
-  @include e(success) {
-    @apply bg-green-100 border-green-600  text-green-800;
-    .schedule{
-      @apply bg-green-600;
-    }
-  }
-  @include e(warn) {
-    @apply bg-yellow-50 border-yellow-300  text-yellow-800;
-    .schedule{
-      @apply bg-yellow-600;
-    }
-  }
-  @include e(info) {
-    @apply bg-gray-50 border-gray-600  text-gray-800;
-    .schedule{
-      @apply bg-gray-600;
-    }
-  }
-  @include e(error) {
-    @apply bg-red-100 border-red-300  text-red-800;
-    .schedule{
-      @apply bg-red-600;
-    }
-  }
-}
-// @mixin alert-theme($color, $bkColor, $side) {
-//   background-color: $bkColor;
-//   border-color: #333;
-//   color: $side;
-//   .progress {
-//     background-color: $side;
-//   }
-//   .nan-icon {
-//     color: #fff;
-//     font-weight: 400;
-//   }
-// }
-// .center {
-//   --nan-justify-content: center;
-// }
+@include mixin.b(message) {
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  background-color: #f5f5f5;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  z-index: $z-base;
 
-.enter {
-  opacity: 0;
-  animation-duration: 0.4s;
-  animation-timing-function: ease;
-  animation-name: entry;
-  animation-fill-mode: forwards;
-  &:hover {
-    animation-play-state: paused;
+  @include mixin.m(success) {
+    background-color: #f6ffed;
+    border-color: #b7eb8f;
+    color: #52c41a;
   }
-}
 
-.out {
-  animation-duration: var(--nan-animation-duration);
-  animation-timing-function: cubic-bezier(0.38, 0.63, 0.56, 0.92);
-  animation-name: out;
+  @include mixin.m(warning) {
+    background-color: #fffbe6;
+    border-color: #ffe58f;
+    color: #faad14;
+  }
+
+  @include mixin.m(error) {
+    background-color: #fff2f0;
+    border-color: #ffccc7;
+    color: #f5222d;
+  }
+
+  @include mixin.m(info) {
+    background-color: #e6f7ff;
+    border-color: #91d5ff;
+    color: #1890ff;
+  }
+
+  @include mixin.e(icon) {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+
+  @include mixin.e(content) {
+    flex: 1;
+  }
+
+  @include mixin.e(close) {
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 8px;
+    color: #999;
+
+    &:hover {
+      color: #333;
+    }
+  }
 }

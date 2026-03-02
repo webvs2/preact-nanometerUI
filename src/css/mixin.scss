@@ -1,8 +1,13 @@
-$namespace: "na";
-$element-separator: "__";
-$modifier-separator: "--";
-$state-prefix: "is-";
-// $B: $namespace;
+@use '@/css/variables.scss' as *;
+@use '@/css/function.scss' as *;
+
+$namespace: "na" !default;
+$element-separator: "__" !default;
+$modifier-separator: "--" !default;
+$state-prefix: "is-" !default;
+$B: null !default;
+$E: null !default;
+
 @mixin b($block) {
   $B: $namespace + "-" + $block !global;
   .#{$B} {
@@ -10,7 +15,6 @@ $state-prefix: "is-";
   }
 }
 @mixin e($element) {
-  // element selector mixin
   $E: $element !global;
   $selector: &;
   $currentSelector: "";
@@ -22,7 +26,6 @@ $state-prefix: "is-";
       $unit +
       ","};
   }
-  // @debug $currentSelector;
   @if hitAllSpecialNestRule($selector) {
     @at-root {
       #{$selector} {
@@ -40,7 +43,6 @@ $state-prefix: "is-";
   }
 }
 @mixin m($modifier) {
-  // modifier selector mixin
   $selector: &;
   $currentSelector: "";
   @each $unit in $modifier {

@@ -17,12 +17,12 @@
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "baseUrl": "./",
-     "paths": {
+    "allowSyntheticDefaultImports": true,
+    "paths": {
       "@/*": ["src/*"],
       "@lib/*": ["lib/*"],
-      "@toolkit/*": ["src/toolkit/*"],
+      "@toolkit/*": ["src/toolkit/*"]
     }
   },
-  "include": ["src","lib"],
-  
+  "include": ["src","lib"]
 }

@@ -1,37 +1,63 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
-title:  nanometer-ui
-
-hero:
-  name: "nanometer-ui"
-  text: "Redefine ui usage"
-  tagline: About Preact's out-of-the-box UI framework
-  image:
-    src: ../l.png
-  actions:
-    - theme: brand
-      text: Going to Components
-      link: /components/index
-    - theme: alt
-      text: API Examples
-      link: /api-examples
-
-features:
-  - title: preact 驱动
-    details: 由整体3kb的preact作为驱动器，它是如今最快的虚拟 DOM 库之一。
-  - title: 积极拥抱ts
-    details: 完善的类型提示，带来丝滑的开发体验，同时让你的代码更加健壮。
-  - title: 丰富的功能
-    details: 小而精，组件丰富，并不断更新，功能强大，快速搭建页面。
+title: preact-nanometerUI
 ---
 
-<style>
-:root {
-   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
-  --vp-home-hero-image-background-image:linear-gradient(-45deg, #9F62FF 50%, #47caff 50%);
-  --vp-home-hero-image-filter:blur(56px);
-}
+# preact-nanometerUI
 
-</style>
+基于 Preact.js 的轻量化 UI 框架，为嵌入式界面和小型网站设计。
+
+## 特性
+
+- **轻量化**：基于 Preact.js，体积小，性能高
+- **响应式**：适配不同屏幕尺寸
+- **易于使用**：简洁的 API 设计，易于集成
+- **主题定制**：支持自定义主题
+- **组件丰富**：提供常用的 UI 组件
+
+## 快速开始
+
+### 安装
+
+```bash
+npm install preact-nanometerui
+# 或
+yarn add preact-nanometerui
+```
+
+### 导入组件
+
+```jsx
+import { Button, Input, Select, Radio, RadioGroup } from 'preact-nanometerui';
+
+function App() {
+  return (
+    <div>
+      <Button>按钮</Button>
+      <Input placeholder="请输入" />
+      <Select 
+        options={['选项1', '选项2', '选项3']} 
+        placeholder="请选择" 
+      />
+      <RadioGroup>
+        <Radio value="1">选项1</Radio>
+        <Radio value="2">选项2</Radio>
+      </RadioGroup>
+    </div>
+  );
+}
+```
+
+## 浏览器支持
+
+- Chrome
+- Firefox
+- Safari
+- Edge
+
+## 贡献
+
+欢迎贡献代码，提交 Issue 或 Pull Request。
+
+## 许可证
+
+MIT 许可证

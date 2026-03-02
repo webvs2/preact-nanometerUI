@@ -48,7 +48,7 @@ function Tooltip(props: tooltipProps) {
       shift(),
     ],
   });
-  const { isMounted, styles } = useTransitionStyles(context);
+  const { styles } = useTransitionStyles(context);
   const hover = useHover(context, { move: false });
   const focus = useFocus(context);
   const dismiss = useDismiss(context);

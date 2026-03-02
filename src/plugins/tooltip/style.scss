@@ -1,8 +1,12 @@
+@use '@/css/mixin.scss' as mixin;
+@tailwind utilities;
+
 .Tooltip {
   display: inline-block;
-  @apply bg-gray-600 shadow-md  px-2  py-2 rounded-sm text-white text-xs;
+  // @apply bg-gray-600 shadow-md px-2 py-2 rounded-sm text-white text-xs;
 }
-@include b(tooltip) {
+
+@include mixin.b(tooltip) {
   display: inline-block;
   // border: solid red 1px;
   @apply cursor-pointer;

@@ -1,9 +1,9 @@
-$z-base:100;
+$z-base: 100;
 $stateColorMap: (
-    success: green,
-    warning: amber,
-    danger: red,
-    info: slate,
-    primary: sky,
+    success: #52c41a,
+    warning: #faad14,
+    danger: #f5222d,
+    info: #1890ff,
+    primary: #1890ff,
   );
-  $shadow-base: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+$shadow-base: 0 2px 12px 0 rgba(0, 0, 0, 0.1);

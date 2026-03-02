@@ -1,7 +1,7 @@
 import "./src/styles/index.scss";
 import { optionType,state } from "./type";
-import { storeSteward } from "@toolkit/store";
-import  render  from "@toolkit/render";
+import { storeSteward } from "@/toolkit/store";
+import  render  from "@/toolkit/render";
 
 
 let $store = new storeSteward({

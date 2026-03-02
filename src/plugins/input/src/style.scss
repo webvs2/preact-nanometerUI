@@ -1,41 +1,47 @@
-@include b(input) {
+@use '@/css/mixin.scss';
+
+@include mixin.b(input) {
   font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   &[type="text"] {
     transition: all 200ms ease-out;
-    @apply border border-gray-300 rounded-md px-2 py-1;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 4px 8px;
     outline: none;
+    
     &:hover {
-      // box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
       box-shadow: 0 0 0 1px #409eff;
-
-      // @apply border border-gray-400;
     }
+    
     &:focus {
       box-shadow: 0 0 0 1px #409eff;
-
-      // @apply border border-sky-400;
     }
   }
-  @include e(disabled) {
-    @apply bg-gray-100 cursor-not-allowed;
-    //  pointer-events: none;
+  
+  @include mixin.e(disabled) {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
     opacity: 0.4;
 
     &[type="text"] {
-      @apply border border-gray-200;
+      border: 1px solid #e8e8e8;
     }
   }
 }
-@include b(input-box) {
+
+@include mixin.b(input-box) {
   position: relative;
-  @include e(icon) {
+  
+  @include mixin.e(icon) {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 10px;
   }
-  @include e(prefix) {
+  
+  @include mixin.e(prefix) {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

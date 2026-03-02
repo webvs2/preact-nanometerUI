@@ -1,7 +1,9 @@
 import "./style.scss";
 import { sizeProps, typeProps } from "@toolkit/baseType";
 // import {classEsm} from "@toolkit/helper";
-import classNames from "classNames";
+import { h } from "preact";
+import { useState } from "preact/hooks";
+import classNames from "classnames";
 import { bemStr } from "@/toolkit/bem";
 let bem = bemStr("button");
 

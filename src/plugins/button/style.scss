@@ -1,61 +1,82 @@
-@include b(button) {
-  @apply antialiased  text-gray-700  cursor-pointer transition  ease-in-out  rounded-md  hover:text-current;
-  @apply ml-2;
-  @include m(text) {
-    background-color: inherit;
+@use '@/css/mixin.scss';
+@use '@/css/variables.scss' as *;
+@use "sass:color";
+
+@include mixin.b(button) {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 4px;
+  margin-left: 8px;
+  
+  @include mixin.m(text) {
+    background-color: transparent;
     transition-duration: 350ms;
-    @apply hover:bg-gray-300;
+    
+    &:hover {
+      background-color: #f0f0f0;
+    }
   }
 
-  @include m(disabled) {
-    @apply opacity-50 cursor-not-allowed;
+  @include mixin.m(disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
-  @include e(small) {
+  @include mixin.e(small) {
     font-size: 12px;
-    padding: 0.2rem 0.8rem;
+    padding: 4px 16px;
   }
-  @include e(medium) {
+  
+  @include mixin.e(medium) {
     font-size: 14px;
-    padding: 0.4rem 1.4rem;
+    padding: 8px 24px;
   }
-  @include e(large) {
+  
+  @include mixin.e(large) {
     font-size: 16px;
-    padding: 0.4rem 1.4rem;
+    padding: 8px 24px;
   }
-  @include e(normal) {
+  
+  @include mixin.e(normal) {
     font-size: 14px;
-    padding: 0.4rem 1.2rem;
+    padding: 8px 20px;
   }
 
   @each $state, $color in $stateColorMap {
-    @include m(#{$state}) {
+    @include mixin.m(#{$state}) {
       box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.1);
       pointer-events: auto;
-      @apply #{'bg-'+ $color + '-500'};
-      @apply #{'border-'+$color+'-300'};
-      @apply border text-white;
+      background-color: $color;
+      border: 1px solid color.adjust($color, $lightness: -10%);
+      color: white;
 
       &:hover {
-        @apply #{'border-'+$color+'-400'};
-        @apply bg-#{$color+'-400'};
-        @apply text-slate-50;
+        border-color: color.adjust($color, $lightness: -20%);
+        background-color: color.adjust($color, $lightness: -5%);
+        color: #f8f8f8;
       }
     }
   }
 
-  @include e(plain) {
-    background-color: inherit;
-    @apply text-gray-600;
+  @include mixin.e(plain) {
+    background-color: transparent;
+    color: #666;
   }
-  @include e(round) {
-    @apply rounded-full;
+  
+  @include mixin.e(round) {
+    border-radius: 9999px;
   }
 }
 
 @mixin after($color, $width) {
   position: relative;
   z-index: 1;
+  
   &::after {
     content: "";
     position: absolute;
@@ -65,40 +86,15 @@
     right: 0;
     inset: 0;
     border-radius: inherit;
-    // background-color: red;
     opacity: 0;
     box-shadow: 0 0 0 6px red;
     z-index: -1;
     transition: 0.3s;
   }
+  
   &:active::after {
     transition: 0s;
     box-shadow: none;
     opacity: 0.4;
   }
 }
-
-// .after {
-//   position: relative;
-//   z-index: 1;
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     bottom: 0;
-//     right: 0;
-//     inset: 0;
-//     border-radius: inherit;
-//     // background-color: red;
-//     opacity: 0;
-//     box-shadow: 0 0 0 6px red;
-//     z-index: -1;
-//     transition: 0.3s;
-//   }
-//   &:active::after {
-//     transition: 0s;
-//     box-shadow: none;
-//     opacity: 0.4;
-//   }
-// }

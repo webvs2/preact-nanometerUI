@@ -1,37 +1,21 @@
-
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
 import preact from '@preact/preset-vite'
+import path from 'path'
+
+// https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [preact()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
-      '@public': resolve(__dirname, 'public'),
-      '@toolkit': resolve(__dirname, 'src/toolkit'),
+      '@': path.resolve(__dirname, './src'),
+      'classnames': path.resolve(__dirname, './node_modules/classnames'),
     },
-    extensions: ['.js', '.ts', '.jsx', '.tsx',]
   },
-  css:{
-    preprocessorOptions:{
-      scss:{
-        additionalData:`@import'@/css/mixin.scss'; @import'@/css/function.scss'; @import'@/css/variables.scss';`
-      }
-    }
-  },
-  plugins: [preact()],
-  build: {
-    lib: {
-      entry: resolve(__dirname, './src/plugin/index'),
-      name: 'nanometer',
-      fileName: 'lib',
-    },
-    rollupOptions: {
-      external: ['lodash-es'],
-      output: {
-        globals: {
-          vue: 'lodash-es',
-        },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'legacy',
       },
-    }
-  }
+    },
+  },
 })

@@ -1,19 +1,72 @@
-@include b(badge) {
-  display: inline-block;
+@use '@/css/mixin.scss';
+@use '@/css/variables.scss' as *;
+
+@include mixin.b(badge) {
   position: relative;
-  @apply mx-4;
-  .after {
-    z-index: $z-base -10;
-    min-width: theme("width.5");
-    border: solid red 1px;
-    font-size: 12px;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-    transform: scale(90%, 90%) translate(90%, -60%);
-    @apply bg-red-500 absolute top-0 right-0  text-white flex items-center justify-center cursor-pointer  p-1  h-5 rounded-full;
+  display: inline-block;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+  border-radius: 10px;
+  background-color: #ff4d4f;
+  color: #fff;
+  margin-left: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  z-index: $z-base;
+
+  @include mixin.m(dot) {
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    border-radius: 50%;
   }
-  @include e(small) {
-    .after {
-      transform: scale(80%, 80%) translate(90%, -90%);
+
+  @include mixin.m(sup) {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    transform: translate(50%, -50%);
+  }
+
+  @include mixin.m(circle) {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  @include mixin.m(ribbon) {
+    position: relative;
+    padding: 0 16px;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    background-color: #ff4d4f;
+    border-radius: 0;
+    z-index: $z-base;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-width: 10px 8px 10px 0;
+      border-style: solid;
+      border-color: transparent transparent transparent #ff4d4f;
+      content: "";
+    }
+  }
+
+  @each $state, $color in $stateColorMap {
+    @include mixin.m(#{$state}) {
+      background-color: #{$color};
+
+      &::after {
+        border-color: transparent transparent transparent #{$color};
+      }
     }
   }
 }

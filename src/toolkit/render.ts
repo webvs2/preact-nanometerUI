@@ -1,5 +1,5 @@
-import { cssAttrSymbolTransition as cast,isDom } from "./help";
-import {compact} from "lodash-es"
+import { cssAttrSymbolTransition as cast } from "./help";
+import { compact } from "lodash-es"
 interface interfaceRender {
   tag: string;
   children?: any;
@@ -25,13 +25,13 @@ const render = (obj: interfaceRender, root?: HTMLElement) => {
       el.setAttribute(item, property || obj.attr?.[item]);
     });
   }
-  
+
   if (typeof obj.children == "string" || typeof obj.children == "number") {
     const text = document.createTextNode(String(obj.children));
     el.appendChild(text);
   } else if (obj.children) {
-    obj.children = compact(obj.children) 
-   obj.children.forEach((element: interfaceRender) => render(element, el));
+    obj.children = compact(obj.children)
+    obj.children.forEach((element: interfaceRender) => render(element, el));
   }
   return root ? root.appendChild(el) : el;
 };

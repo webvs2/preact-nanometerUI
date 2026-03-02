@@ -1,18 +1,8 @@
 import { Component } from "preact";
-import "./src/style.scss";
-import classNames from "classNames";
-type buttonType =
-  | "button"
-  | "checkbox"
-  | "file"
-  | "hidden"
-  | "image"
-  | "password"
-  | "radio"
-  | "reset"
-  | "submit"
-  | "text";
-interface inputProps {
+import { h } from "preact/hooks";
+import classNames from "classnames";
+
+interface InputProps {
   id?: string;
   value: string | number | undefined;
   autocomplete?: string;
@@ -28,12 +18,12 @@ interface inputProps {
   isPrefix?: boolean;
 }
 
-class input extends Component<inputProps, any> {
+class Input extends Component<InputProps, any> {
   state = {
     value: undefined,
     type: "text",
   };
-  constructor(props: inputProps) {
+  constructor(props: InputProps) {
     super();
     this.state.value = props.value;
   }
@@ -71,5 +61,5 @@ class input extends Component<inputProps, any> {
   }
 }
 
-export default input;
-export type { inputProps };
+export default Input;
+export type { InputProps };

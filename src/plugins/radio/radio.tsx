@@ -1,104 +1,97 @@
 import "./style.scss";
-import {
-  Component,
-  ComponentChild,
-  createContext,
-} from "preact";
-import {bemStr} from "@toolkit/bem";
-import {useContext,useEffect} from "preact/hooks";
-let bem = bemStr("radio");
-// import { useContext,useMemo } from "preact/hooks";
-import {RadioGroupContext} from "./radioGroup";
+import { useContext, useEffect, useState } from "preact/hooks";
+import { RadioGroupContext } from "./radioGroup";
+import classNames from "classnames";
 
-import classNames from "classNames";
-interface radioProps {
+interface RadioProps {
   autoFocus?: boolean;
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
   value?: any;
-  click?: Function;
-  change?: Function;
-  gatherChangeValue?: Function;
-  // setActiveState:boolean;
+  name?: string;
+  onClick?: (checked: boolean, event: Event) => void;
+  onChange?: (checked: boolean, event: Event) => void;
+  className?: string;
+  children?: any;
 }
 
+export default function Radio({
+  autoFocus = false,
+  checked: propsChecked,
+  defaultChecked = false,
+  disabled = false,
+  value,
+  name,
+  onClick,
+  onChange,
+  className = "",
+  children
+}: RadioProps) {
+  const radioGroupContext = useContext(RadioGroupContext);
+  const [checked, setChecked] = useState(propsChecked !== undefined ? propsChecked : defaultChecked);
 
-class radio extends Component<radioProps> {
-  state  = {
-    checked: false,
-    token:null
-  };
-  constructor(props: radioProps) {
-    super(props);
-    this.state.checked = props.checked || props.defaultChecked || false;
-  }
-  componentDidMount(){
-    // let { props, state} = this;
-
-
-  }
-  click(e) {
-    let { props, state} = this;
-    if(state.token&&state.token.GroupToken){
-    this.setState({ checked: props.checked });
-    }else{
-      this.setState({ checked: e.target.checked });
+  // 当 props.checked 变化时更新状态
+  useEffect(() => {
+    if (propsChecked !== undefined) {
+      setChecked(propsChecked);
     }
-    props.click && props.click(state.checked, e);
-  }
-  change(e) {
-    let { props, state } = this;
-    // props.gatherChangeValue && props.gatherChangeValue(props.value);
-    props.gatherChangeValue && props.gatherChangeValue(props.value);
-    props.change && props.change(state.checked, e);
-  }
-  getToken(){
-    // const theme = useContext(RadioGroupContext);
-    return this.state.token
-  }
-  // ComponentChild
-  render(props, state?: Readonly<{checked:false}> ) {
-    const btnClass = classNames(
-      "na-radio",
-      {
-        "na-radio--checked": state.checked,
-      }
-    )
-    // console.log('getToken',this.getToken());
-    this.state.token = useContext(RadioGroupContext);
-    useEffect(() => { 
-      this.setState({ checked: props.checked })
+  }, [propsChecked]);
 
-    },[props.checked])
-    return (
-      <label class={btnClass} 
-      role="radio"
-      
-      aria-checked={props.checked}
-      >
-        <span class={bem('input')}>
-          <input
-            onChange={this.change.bind(this)}
-            type="radio"
-            name="drone"
-            onClick={this.click.bind(this)}
-            disabled={props.disabled}
-            autoFocus={props.autoFocus}
-            value={props.value}
-           
-          ></input>
+  // 当 radioGroup 的值变化时更新状态
+  useEffect(() => {
+    if (radioGroupContext && radioGroupContext.GroupToken) {
+      setChecked(radioGroupContext.activityValue === value);
+    }
+  }, [radioGroupContext, value]);
+
+  const handleChange = (event: Event) => {
+    const newChecked = !checked;
+    setChecked(newChecked);
     
-          <span class={`na-radio__inner `}></span>
+    // 通知 radioGroup
+    if (radioGroupContext && radioGroupContext.GroupToken) {
+      radioGroupContext.gatherChangeValue && radioGroupContext.gatherChangeValue(value);
+    }
+    
+    // 调用回调
+    onChange && onChange(newChecked, event);
+    onClick && onClick(newChecked, event);
+  };
+
+  const btnClass = classNames(
+    "na-radio",
+    className,
+    {
+      "na-radio--checked": checked,
+      "na-radio--disabled": disabled,
+    }
+  );
+
+  const inputName = radioGroupContext && radioGroupContext.GroupToken ? radioGroupContext.name : name;
+
+  return (
+    <label className={btnClass} role="radio" aria-checked={checked} aria-disabled={disabled}>
+      <span className="na-radio__input">
+        <input
+          type="radio"
+          name={inputName}
+          checked={checked}
+          onChange={handleChange}
+          onClick={handleChange}
+          disabled={disabled}
+          autoFocus={autoFocus}
+          value={value}
+        />
+        <span className="na-radio__inner"></span>
+      </span>
+      {children && (
+        <span className="na-radio__label">
+          {children}
         </span>
-        <div class={`na-radio__label`}>
-          {props.children}   
-          {props.checked}  
-        </div>
-      </label>
-    );
-  }
+      )}
+    </label>
+  );
 }
 
-export default radio;
-export type { radioProps };
+export type { RadioProps };

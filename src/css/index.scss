@@ -1,9 +1,10 @@
+@use '@/css/variables.scss' as *;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("@public/icon/iconfont.css");
+// @import url("@/css/variables");
+// url("@public/icon/iconfont.css");
 // @import url("@public/source-code-pro-release/source-code-pro.css");
-@import "./animation.scss";
 
 :root {
   --base-font-color: #303133;
@@ -14,6 +15,7 @@
   --nan-animation-duration: 0.5s;
   --nan-justify-content: flex-start;
 }
+
 html,
 body {
   height: 100%;
@@ -23,12 +25,12 @@ body {
   font-family: "Source Code Pro", Avenir, Helvetica, Arial, sans-serif;
 
 }
+
 .f-Source {
   // font-family: "Source Code Pro", Avenir, Helvetica, Arial, sans-serif;
 }
+
 .global-disabled {
   pointer-events: none;
   opacity: 0.4;
 }
-
-
