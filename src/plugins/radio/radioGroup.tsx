@@ -16,6 +16,7 @@ interface RadioGroupProps {
   onChange?: (value: any) => void;
   name?: string;
   className?: string;
+  direction?: 'horizontal' | 'vertical';
   children?: ComponentChild;
 }
 
@@ -24,6 +25,7 @@ export default function RadioGroup({
   onChange,
   name,
   className = "",
+  direction = 'horizontal',
   children
 }: RadioGroupProps) {
   const [value, setValue] = useState(propsValue !== undefined ? propsValue : null);
@@ -49,7 +51,7 @@ export default function RadioGroup({
 
   return (
     <RadioGroupContext.Provider value={contextValue}>
-      <div className={`na-radio-group ${className}`}>
+      <div className={`na-radio-group na-radio-group--${direction} ${className}`}>
         {children}
       </div>
     </RadioGroupContext.Provider>

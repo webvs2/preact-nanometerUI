@@ -3,9 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "sideEffects": false,
   "files": [
     "dist"
   ],
+  "peerDependencies": {
+    "preact": ">=10.0.0",
+    "@floating-ui/react": ">=0.24.0"
+  },
   "main": "./dist/lib.umd.cjs",
   "module": "./dist/lib.js",
   "exports": {
@@ -16,7 +21,7 @@
   },
   "scripts": {
     "dev": "vite --force",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "commit": "cz",
     "ce": "node run-script/create.js",

@@ -2,108 +2,181 @@
 
 @include mixin.b(radio) {
   position: relative;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  white-space: nowrap;
-  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.5714285714;
+  color: rgba(0, 0, 0, 0.88);
   user-select: none;
-  margin-right: 32px;
+  touch-action: manipulation;
+  margin-inline-end: 8px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  span {
-    padding-bottom: 0;
+  &:last-child {
+    margin-inline-end: 0;
+  }
+
+  &:hover {
+    .na-radio__input {
+      .na-radio__inner {
+        border-color: #1677ff;
+      }
+    }
   }
 
   @include mixin.e(input) {
-    white-space: nowrap;
-    cursor: pointer;
-    outline: none;
-    display: inline-flex;
     position: relative;
+    display: inline-block;
+    inset: 0;
+    cursor: pointer;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: none;
 
     input {
-      opacity: 0;
-      outline: none;
       position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0;
-    }
-
-    @include mixin.e(inner) {
-      width: 15px;
-      height: 15px;
-      position: relative;
+      inset: 0;
+      z-index: 1;
       cursor: pointer;
-      display: inline-block;
-      border: 1px solid #d9d9d9;
+      opacity: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @include mixin.e(inner) {
+    box-sizing: border-box;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 50%;
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &::after {
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      inset-inline-start: 50%;
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-top: -4px;
+      margin-inline-start: -4px;
+      background-color: #1677ff;
+      border-block-start: 0;
+      border-inline-start: 0;
       border-radius: 50%;
-      transition: all 0.1s ease-in-out;
+      transform: scale(0);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+      content: '';
     }
   }
 
   @include mixin.e(label) {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    box-sizing: border-box;
-    padding-left: 8px;
+    padding-inline-start: 8px;
+    padding-inline-end: 8px;
   }
 
   @include mixin.m(checked) {
-    @include mixin.e(inner) {
-      background-color: #1890ff;
-      border-color: #1890ff;
-
-      &::after {
-        content: "";
-        position: absolute;
-        width: 4px;
-        height: 4px;
+    .na-radio__input {
+      .na-radio__inner {
+        border-color: #1677ff;
         background-color: #fff;
-        left: calc(50% - 2px);
-        top: calc(50% - 2px);
-        border-radius: 50%;
+
+        &::after {
+          transform: scale(1);
+          opacity: 1;
+          transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+        }
       }
     }
   }
 
   @include mixin.m(disabled) {
-    opacity: 0.6;
     cursor: not-allowed;
+    color: rgba(0, 0, 0, 0.25);
 
-    @include mixin.e(input) {
+    .na-radio__input {
       cursor: not-allowed;
 
-      @include mixin.e(inner) {
+      .na-radio__inner {
+        background-color: rgba(0, 0, 0, 0.04);
         border-color: #d9d9d9;
+        cursor: not-allowed;
+
+        &::after {
+          background-color: rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      input {
+        cursor: not-allowed;
       }
     }
 
-    @include mixin.e(label) {
-      cursor: not-allowed;
-      color: #999;
+    &.na-radio--checked {
+      .na-radio__input {
+        .na-radio__inner {
+          background-color: rgba(0, 0, 0, 0.04);
+          border-color: #d9d9d9;
+
+          &::after {
+            background-color: rgba(0, 0, 0, 0.25);
+          }
+        }
+      }
     }
+
+    .na-radio__label {
+      cursor: not-allowed;
+      color: rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &:has(.na-radio__input > input:focus-visible) {
+    outline: 2px solid rgba(5, 145, 255, 0.1);
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 }
 
 .na-radio-group {
   display: inline-flex;
-  flex-direction: column;
-  
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.5714285714;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
   .na-radio {
-    margin-bottom: 8px;
+    margin-inline-end: 8px;
   }
 }
 
 .na-radio-group--horizontal {
   flex-direction: row;
-  
+}
+
+.na-radio-group--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+
   .na-radio {
-    margin-bottom: 0;
+    margin-inline-end: 0;
+    margin-block-end: 8px;
+
+    &:last-child {
+      margin-block-end: 0;
+    }
   }
 }
