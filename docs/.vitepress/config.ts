@@ -3,6 +3,9 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'preact-nanometerUI',
   description: '基于 Preact.js 的轻量化 UI 框架，为嵌入式界面和小型网站设计',
+  head: [
+    ['meta', { name: 'theme-color', content: '#9333EA' }]
+  ],
   themeConfig: {
     logo: '/logo.png',
     nav: [

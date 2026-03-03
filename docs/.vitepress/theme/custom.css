@@ -1,0 +1,30 @@
+:root {
+  --vp-c-brand: #9333EA;
+  --vp-c-brand-light: #A855F7;
+  --vp-c-brand-lighter: #C084FC;
+  --vp-c-brand-dark: #7E22CE;
+  --vp-c-brand-darker: #6B21A8;
+}
+
+.VPButton.brand {
+  background: linear-gradient(135deg, #9333EA 0%, #6366F1 100%);
+}
+
+.VPButton.brand:hover {
+  background: linear-gradient(135deg, #7E22CE 0%, #4F46E5 100%);
+}
+
+.VPFeature.icon {
+  background: linear-gradient(135deg, #9333EA 0%, #6366F1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.VPHero .name {
+  background: linear-gradient(135deg, #9333EA 0%, #6366F1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
