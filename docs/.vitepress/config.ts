@@ -8,7 +8,6 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#9333EA' }]
   ],
   themeConfig: {
-    logo: '/logo.png',
     nav: [
       {
         text: '首页',
