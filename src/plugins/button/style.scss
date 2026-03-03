@@ -3,98 +3,195 @@
 @use "sass:color";
 
 @include mixin.b(button) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #333;
+  font-weight: 400;
+  line-height: 1.5714285714;
+  color: rgba(0, 0, 0, 0.88);
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  outline: none;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  border-radius: 4px;
-  margin-left: 8px;
-  
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: 4px solid rgba(5, 145, 255, 0.1);
+    outline-offset: 1px;
+  }
+
+  &:focus-visible {
+    outline: 4px solid rgba(5, 145, 255, 0.1);
+    outline-offset: 1px;
+  }
+
+  &:hover {
+    color: #4096ff;
+    border-color: #4096ff;
+  }
+
+  &:active {
+    color: #0958d9;
+    border-color: #0958d9;
+  }
+
   @include mixin.m(text) {
-    background-color: transparent;
-    transition-duration: 350ms;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
     
     &:hover {
-      background-color: #f0f0f0;
+      color: #4096ff;
+      background: rgba(0, 0, 0, 0.04);
+    }
+    
+    &:active {
+      color: #0958d9;
+      background: rgba(0, 0, 0, 0.06);
     }
   }
 
   @include mixin.m(disabled) {
-    opacity: 0.5;
     cursor: not-allowed;
+    color: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.04);
+    border-color: #d9d9d9;
+    box-shadow: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.04);
+      border-color: #d9d9d9;
+    }
   }
 
   @include mixin.e(small) {
-    font-size: 12px;
-    padding: 4px 16px;
+    font-size: 14px;
+    height: 24px;
+    padding: 4px 15px;
+    border-radius: 4px;
   }
   
   @include mixin.e(medium) {
     font-size: 14px;
-    padding: 8px 24px;
+    height: 32px;
+    padding: 4px 15px;
   }
   
   @include mixin.e(large) {
     font-size: 16px;
-    padding: 8px 24px;
+    height: 40px;
+    padding: 6.4px 15px;
   }
   
   @include mixin.e(normal) {
     font-size: 14px;
-    padding: 8px 20px;
+    height: 32px;
+    padding: 4px 15px;
   }
 
-  @each $state, $color in $stateColorMap {
-    @include mixin.m(#{$state}) {
-      box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.1);
-      pointer-events: auto;
-      background-color: $color;
-      border: 1px solid color.adjust($color, $lightness: -10%);
-      color: white;
+  @include mixin.m(primary) {
+    color: #fff;
+    background: #1677ff;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.06);
+    border: 1px solid #1677ff;
 
-      &:hover {
-        border-color: color.adjust($color, $lightness: -20%);
-        background-color: color.adjust($color, $lightness: -5%);
-        color: #f8f8f8;
-      }
+    &:hover {
+      color: #fff;
+      background: #4096ff;
+      border-color: #4096ff;
+    }
+
+    &:active {
+      color: #fff;
+      background: #0958d9;
+      border-color: #0958d9;
+    }
+  }
+
+  @include mixin.m(success) {
+    color: #fff;
+    background: #52c41a;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.06);
+    border: 1px solid #52c41a;
+
+    &:hover {
+      color: #fff;
+      background: #73d13d;
+      border-color: #73d13d;
+    }
+
+    &:active {
+      color: #fff;
+      background: #389e0d;
+      border-color: #389e0d;
+    }
+  }
+
+  @include mixin.m(warning) {
+    color: #fff;
+    background: #faad14;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.06);
+    border: 1px solid #faad14;
+
+    &:hover {
+      color: #fff;
+      background: #ffc53d;
+      border-color: #ffc53d;
+    }
+
+    &:active {
+      color: #fff;
+      background: #d48806;
+      border-color: #d48806;
+    }
+  }
+
+  @include mixin.m(danger) {
+    color: #fff;
+    background: #ff4d4f;
+    box-shadow: 0 2px 0 rgba(5, 145, 255, 0.06);
+    border: 1px solid #ff4d4f;
+
+    &:hover {
+      color: #fff;
+      background: #ff7875;
+      border-color: #ff7875;
+    }
+
+    &:active {
+      color: #fff;
+      background: #d9363e;
+      border-color: #d9363e;
     }
   }
 
   @include mixin.e(plain) {
     background-color: transparent;
-    color: #666;
+    color: #1677ff;
+    border-color: #1677ff;
+
+    &:hover {
+      color: #4096ff;
+      background: rgba(5, 145, 255, 0.06);
+      border-color: #4096ff;
+    }
   }
   
   @include mixin.e(round) {
     border-radius: 9999px;
-  }
-}
-
-@mixin after($color, $width) {
-  position: relative;
-  z-index: 1;
-  
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    inset: 0;
-    border-radius: inherit;
-    opacity: 0;
-    box-shadow: 0 0 0 6px red;
-    z-index: -1;
-    transition: 0.3s;
-  }
-  
-  &:active::after {
-    transition: 0s;
-    box-shadow: none;
-    opacity: 0.4;
   }
 }
