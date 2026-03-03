@@ -3,12 +3,13 @@ import {
   Button,
   Radio,
   RadioGroup,
+  Select,
+  Switch,
   // NaSchedule,
   // NaBadge,
   // Card,
   // message,
   // Input,
-  // Select,
   // Tooltip,
   // Menu,
   // MenuItem,
@@ -91,6 +92,95 @@ let App = () => {
           <Radio value="2">Green</Radio>
           <Radio value="3">Blue</Radio>
         </RadioGroup>
+      </div>
+
+      <h2 style={{ margin: '24px 0 16px', fontSize: '18px', color: '#374151' }}>基础选择器</h2>
+      <div style={{ marginBottom: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ width: '200px' }}>
+          <Select
+            options={['Option 1', 'Option 2', 'Option 3', 'Option 4']}
+            placeholder="请选择"
+          />
+        </div>
+      </div>
+
+      <h2 style={{ margin: '24px 0 16px', fontSize: '18px', color: '#374151' }}>带初始值的选择器</h2>
+      <div style={{ marginBottom: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ width: '200px' }}>
+          <Select
+            options={[
+              { value: 'apple', label: 'Apple' },
+              { value: 'banana', label: 'Banana' },
+              { value: 'cherry', label: 'Cherry' },
+              { value: 'date', label: 'Date' },
+            ]}
+            value="banana"
+            placeholder="请选择水果"
+          />
+        </div>
+      </div>
+
+      <h2 style={{ margin: '24px 0 16px', fontSize: '18px', color: '#374151' }}>禁用状态选择器</h2>
+      <div style={{ marginBottom: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ width: '200px' }}>
+          <Select
+            options={['Option 1', 'Option 2', 'Option 3']}
+            placeholder="请选择"
+            disabled
+          />
+        </div>
+      </div>
+
+      <h2 style={{ margin: '24px 0 16px', fontSize: '18px', color: '#374151' }}>不同尺寸选择器</h2>
+      <div style={{ marginBottom: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ width: '150px' }}>
+          <Select
+            options={['Small']}
+            size="small"
+            placeholder="Small"
+          />
+        </div>
+        <div style={{ width: '200px' }}>
+          <Select
+            options={['Middle']}
+            size="middle"
+            placeholder="Middle"
+          />
+        </div>
+        <div style={{ width: '250px' }}>
+          <Select
+            options={['Large']}
+            size="large"
+            placeholder="Large"
+          />
+        </div>
+      </div>
+
+      <h2 style={{ margin: '24px 0 16px', fontSize: '18px', color: '#374151' }}>基础开关</h2>
+      <div style={{ marginBottom: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <Switch />
+        <Switch checked />
+      </div>
+
+      <h2 style={{ margin: '24px 0 16px', fontSize: '18px', color: '#374151' }}>带文字的开关</h2>
+      <div style={{ marginBottom: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <Switch>Open</Switch>
+        <Switch checked>Close</Switch>
+      </div>
+
+      <h2 style={{ margin: '24px 0 16px', fontSize: '18px', color: '#374151' }}>禁用状态开关</h2>
+      <div style={{ marginBottom: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <Switch disabled>Disabled</Switch>
+        <Switch checked disabled>Disabled & On</Switch>
+      </div>
+
+      <h2 style={{ margin: '24px 0 16px', fontSize: '18px', color: '#374151' }}>不同尺寸开关</h2>
+      <div style={{ marginBottom: '24px', display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <Switch size="small" />
+        <Switch size="small" checked />
+        <div style={{ width: '16px' }}></div>
+        <Switch />
+        <Switch checked />
       </div>
     </div>
   );

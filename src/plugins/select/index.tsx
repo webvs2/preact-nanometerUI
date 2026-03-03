@@ -27,6 +27,7 @@ interface SelectProps {
   onChange?: (value: string | number) => void;
   placeholder?: string;
   disabled?: boolean;
+  size?: 'small' | 'middle' | 'large';
   className?: string;
 }
 
@@ -36,6 +37,7 @@ export default function Select({
   onChange, 
   placeholder = "请选择", 
   disabled = false, 
+  size = 'middle',
   className = ""
 }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -114,7 +116,7 @@ export default function Select({
   const selectedItemLabel = selectedItem ? selectedItem.label : '';
 
   return (
-    <div className={`na-select ${className} ${disabled ? 'na-select--disabled' : ''}`}>
+    <div className={`na-select ${className} ${disabled ? 'na-select--disabled' : ''} ${size && size !== 'middle' ? `na-select--${size}` : ''}`}>
       <div
         className="na-select__trigger"
         tabIndex={disabled ? -1 : 0}
@@ -124,11 +126,13 @@ export default function Select({
         aria-disabled={disabled}
         {...getReferenceProps()}
       >
-        <span className="na-select__value">
+        <span className={`na-select__value ${!selectedItemLabel ? 'na-select__value-placeholder' : ''}`}>
           {selectedItemLabel || placeholder}
         </span>
         <span className={`na-select__arrow ${isOpen ? 'na-select__arrow--open' : ''}`}>
-          ▼
+          <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor">
+            <path d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"></path>
+          </svg>
         </span>
       </div>
       {isOpen && (
@@ -171,7 +175,11 @@ export default function Select({
                 >
                   {option.label}
                   {i === selectedIndex && (
-                    <span className="na-select__option__check">✓</span>
+                    <span className="na-select__option-check">
+                      <svg viewBox="64 64 896 896" width="1em" height="1em" fill="currentColor">
+                        <path d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"></path>
+                      </svg>
+                    </span>
                   )}
                 </div>
               ))}

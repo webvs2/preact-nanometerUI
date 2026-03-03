@@ -1,0 +1,123 @@
+@use '@/css/mixin.scss';
+
+@include mixin.b(switch) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  line-height: 1.5714285714;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: transparent;
+  border: 0;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+
+  min-width: 44px;
+  height: 22px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 0;
+
+  &:hover:not(.na-switch--disabled) {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &:focus-visible:not(.na-switch--disabled) {
+    outline: 2px solid rgba(5, 145, 255, 0.1);
+    outline-offset: 2px;
+  }
+
+  @include mixin.e(handle) {
+    position: absolute;
+    top: 2px;
+    inset-inline-start: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1677ff;
+  }
+
+  @include mixin.e(handle-inner) {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+  }
+
+  @include mixin.e(label) {
+    margin-inline-start: 8px;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 14px;
+    line-height: 1.5714285714;
+  }
+
+  @include mixin.m(checked) {
+    background-color: #1677ff;
+
+    &:hover:not(.na-switch--disabled) {
+      background-color: #4096ff;
+    }
+
+    .na-switch__handle {
+      inset-inline-start: calc(100% - 20px);
+    }
+  }
+
+  @include mixin.m(disabled) {
+    cursor: not-allowed;
+    opacity: 0.4;
+
+    &,
+    &:hover,
+    &:active {
+      cursor: not-allowed;
+    }
+
+    .na-switch__handle {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .na-switch__label {
+      color: rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  @include mixin.m(small) {
+    min-width: 28px;
+    height: 16px;
+    line-height: 16px;
+
+    .na-switch__handle {
+      width: 12px;
+      height: 12px;
+      top: 2px;
+      inset-inline-start: 2px;
+    }
+
+    &.na-switch--checked {
+      .na-switch__handle {
+        inset-inline-start: calc(100% - 14px);
+      }
+    }
+  }
+}

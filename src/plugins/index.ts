@@ -9,6 +9,7 @@ import radio from "./radio/radio";
 import Tooltip from "./tooltip/index";
 import radioGroup from "./radio/radioGroup";
 import { Menu,MenuItem } from "./menu";
+import switchComponent from "./switch/index";
 
 
 export {
@@ -22,5 +23,6 @@ export {
   input as Input,
   select as Select,
   radioGroup as RadioGroup,
-  Menu,MenuItem 
+  Menu,MenuItem,
+  switchComponent as Switch
 };
