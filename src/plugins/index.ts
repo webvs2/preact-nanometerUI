@@ -11,6 +11,7 @@ import radioGroup from "./radio/radioGroup";
 import { Menu,MenuItem } from "./menu";
 import switchComponent from "./switch/index";
 import dialog from "./dialog/index";
+import carousel from "./carousel/index";
 
 
 export {
@@ -26,5 +27,6 @@ export {
   radioGroup as RadioGroup,
   Menu,MenuItem,
   switchComponent as Switch,
-  dialog as Dialog
+  dialog as Dialog,
+  carousel as Carousel
 };

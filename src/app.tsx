@@ -15,6 +15,7 @@ import {
   Menu,
   MenuItem,
   Dialog,
+  Carousel,
 } from "./plugins/index";
 
 
@@ -311,6 +312,24 @@ let App = () => {
         <p>您可以通过 showFooter={false} 来隐藏底部栏。</p>
         <p>点击右上角的关闭按钮或点击遮罩层可以关闭对话框。</p>
       </Dialog>
+
+      <h2 style={{ margin: '24px 0 16px', fontSize: '18px', color: '#374151' }}>走马灯 Carousel</h2>
+      <div style={{ marginBottom: '24px', width: '100%', maxWidth: '800px' }}>
+        <Carousel>
+          <div style={{ width: '100%', height: '300px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '24px', fontWeight: 'bold' }}>
+            Slide 1 - 欢迎使用 preact-nanometerUI
+          </div>
+          <div style={{ width: '100%', height: '300px', background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '24px', fontWeight: 'bold' }}>
+            Slide 2 - 精美的 UI 组件库
+          </div>
+          <div style={{ width: '100%', height: '300px', background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '24px', fontWeight: 'bold' }}>
+            Slide 3 - 简单易用
+          </div>
+          <div style={{ width: '100%', height: '300px', background: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '24px', fontWeight: 'bold' }}>
+            Slide 4 - 高性能 Preact
+          </div>
+        </Carousel>
+      </div>
     </div>
   );
 };
