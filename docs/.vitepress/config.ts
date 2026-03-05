@@ -50,6 +50,14 @@ export default defineConfig({
             {
               text: 'Badge 徽章',
               link: '/components/badge'
+            },
+            {
+              text: 'Dialog 对话框',
+              link: '/components/dialog'
+            },
+            {
+              text: 'Carousel 走马灯',
+              link: '/components/carousel'
             }
           ]
         }

@@ -10,3 +10,5 @@ preact-nanometerUI 提供了一系列轻量级的 UI 组件，用于构建嵌入
 - [Radio 单选框](./radio.md)
 - [Card 卡片](./card.md)
 - [Badge 徽章](./badge.md)
+- [Dialog 对话框](./dialog.md)
+- [Carousel 走马灯](./carousel.md)
