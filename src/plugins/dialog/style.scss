@@ -1,0 +1,142 @@
+.na-dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: na-dialog-mask-fade-in 0.2s ease-out;
+}
+
+@keyframes na-dialog-mask-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.na-dialog {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: na-dialog-fade-in 0.2s ease-out;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes na-dialog-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.na-dialog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+.na-dialog__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 1.5;
+}
+
+.na-dialog__close {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.45);
+  transition: color 0.2s;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.na-dialog__body {
+  padding: 24px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 1.5715;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.na-dialog__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-top: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+.na-dialog__btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  padding: 4px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1.5715;
+
+  &:hover {
+    border-color: #722ed1;
+    color: #722ed1;
+  }
+}
+
+.na-dialog__btn--cancel {
+  &:hover {
+    border-color: #722ed1;
+    color: #722ed1;
+  }
+}
+
+.na-dialog__btn--confirm {
+  background: #722ed1;
+  border-color: #722ed1;
+  color: #fff;
+
+  &:hover {
+    background: #9254de;
+    border-color: #9254de;
+    color: #fff;
+  }
+}
